@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/packages
+/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf/obj/Debug
+/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.Droid/obj/Debug/__library_projects__
+/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.iOS/obj/iPhone/Debug
+/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.UWP/obj/x86/Debug
+/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.Droid/Resources/Resource.Designer.cs
+/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf/bin/Debug
+/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.Droid/bin/Debug
+/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.Droid/obj/Debug
