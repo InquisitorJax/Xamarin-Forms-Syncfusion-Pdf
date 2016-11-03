@@ -38,8 +38,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ByteArrayExtensions.cs" />
+    <Compile Include="DeviceCommandResult.cs" />
     <Compile Include="GenerateInvoiceCommand.cs" />
     <Compile Include="Invoice.cs" />
+    <Compile Include="ISaveFileStreamCommand.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

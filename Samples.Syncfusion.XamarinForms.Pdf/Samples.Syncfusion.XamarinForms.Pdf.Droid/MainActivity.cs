@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using Plugin.Permissions;
+using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf.Droid
 {
@@ -22,6 +23,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+
+            DependencyService.Register<ISaveFileStreamCommand, AndroidSaveFileStreamCommand>();
         }
     }
 }

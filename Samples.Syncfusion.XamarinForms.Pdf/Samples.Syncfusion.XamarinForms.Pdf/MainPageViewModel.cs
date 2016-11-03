@@ -1,6 +1,5 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -26,7 +25,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         private async Task GenerateInvoiceAsync()
         {
-            throw new NotImplementedException();
+            var generateCommand = new GenerateInvoiceCommand();
+            var result = await generateCommand.ExecuteAsync(new GenerateInvoiceContext { FileName = "test.pdf", Invoice = Model });
         }
     }
 }
