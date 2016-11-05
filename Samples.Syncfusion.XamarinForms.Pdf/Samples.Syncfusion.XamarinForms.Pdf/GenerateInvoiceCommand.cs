@@ -34,8 +34,23 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             //Create PDF graphics for the page.
             PdfGraphics graphics = page.Graphics;
 
+            int y = 10;
+            //Load the image from the disk.
+            if (request.Invoice.Logo != null)
+            {
+                using (MemoryStream imageStream = request.Invoice.Logo.AsMemoryStream())
+                {
+                    PdfBitmap image = new PdfBitmap(imageStream);
+                    graphics.DrawImage(image, new RectangleF(0, y, 390, 130));
+                }
+            }
+
+            y = y + 150;
+
             PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
-            RectangleF bounds = new RectangleF(0, 90, graphics.ClientSize.Width, 30);
+            PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+
+            RectangleF bounds = new RectangleF(0, y, graphics.ClientSize.Width, 30);
             //Draws a rectangle to place the heading in that region.
             graphics.DrawRectangle(solidBrush, bounds);
             //Creates a font for adding the heading in the page
@@ -44,18 +59,19 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             PdfTextElement element = new PdfTextElement("INVOICE 777", subHeadingFont);
             element.Brush = PdfBrushes.White;
 
+            y = y + 8;
             //Draws the heading on the page
-            PdfLayoutResult result = element.Draw(page, new PointF(10, 98));
+            PdfLayoutResult result = element.Draw(page, new PointF(10, y));
             string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
             //Measures the width of the text to place it in the correct location
             SizeF textSize = subHeadingFont.MeasureString(currentDate);
             PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
             //Draws the date by using DrawString method
             graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
-            PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+
             //Creates text elements to add the address and draw it to the page.
-            element = new PdfTextElement("BILL TO ", timesRoman);
-            element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
+            element = new PdfTextElement(request.Invoice.Heading, timesRoman);
+            element.Brush = solidBrush;
             result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
             PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
             PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
@@ -63,15 +79,9 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             //Draws a line at the bottom of the address
             graphics.DrawLine(linePen, startPoint, endPoint);
 
-            //Load the image from the disk.
-            if (request.Invoice.Logo != null)
-            {
-                using (MemoryStream imageStream = request.Invoice.Logo.AsMemoryStream())
-                {
-                    PdfBitmap image = new PdfBitmap(imageStream);
-                    graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
-                }
-            }
+            element = new PdfTextElement(request.Invoice.Description, timesRoman);
+            element.Brush = solidBrush;
+            result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
 
             //Save the document.
             using (MemoryStream ms = new MemoryStream())
