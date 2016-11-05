@@ -39,6 +39,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             var retResult = new SelectPictureResult();
 
+            await MediaPicker.Initialize();
+
             if (!MediaPicker.IsCameraAvailable || !MediaPicker.IsTakePhotoSupported)
             {
                 retResult.Notification.Add("No camera available :(");
@@ -54,10 +56,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             if (mediaFile != null)
             {
-                using (MemoryStream ms = new MemoryStream())
+                using (mediaFile)
                 {
-                    mediaFile.GetStream().CopyTo(ms);
-                    retResult.Image = ms.ToArray();
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        mediaFile.GetStream().CopyTo(ms);
+                        retResult.Image = ms.ToArray();
+                    }
                 }
 
                 retResult.TaskResult = TaskResult.Success;
