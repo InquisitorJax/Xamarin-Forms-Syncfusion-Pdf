@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
@@ -13,12 +10,14 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             InitializeComponent();
 
-            MainPage = new Samples.Syncfusion.XamarinForms.Pdf.MainPage();
+            DependencyService.Register<ITakePictureCommand, TakePictureCommand>();
+
+            MainPage = new NavigationPage(new MainPage());
         }
 
-        protected override void OnStart()
+        protected override void OnResume()
         {
-            // Handle when your app starts
+            // Handle when your app resumes
         }
 
         protected override void OnSleep()
@@ -26,9 +25,9 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             // Handle when your app sleeps
         }
 
-        protected override void OnResume()
+        protected override void OnStart()
         {
-            // Handle when your app resumes
+            // Handle when your app starts
         }
     }
 }
