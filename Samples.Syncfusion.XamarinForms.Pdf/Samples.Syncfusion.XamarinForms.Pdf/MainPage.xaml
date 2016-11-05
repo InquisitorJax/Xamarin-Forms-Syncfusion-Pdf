@@ -21,7 +21,7 @@
         <RowDefinition Height="*" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
-      <StackLayout Padding="0,12,0,0">
+      <StackLayout Padding="3,12,3,0">
         <Image HeightRequest="100"
                HorizontalOptions="CenterAndExpand"
                Source="{Binding Model.Logo,
@@ -29,6 +29,8 @@
                                         ConverterParameter=icon}"
                WidthRequest="100" />
         <Entry Placeholder="heading" Text="{Binding Model.Heading}" />
+        <Label FontSize="Micro" Text="description" />
+        <local:ExpandingEditor Text="{Binding Model.Description}" />
       </StackLayout>
       <Button Grid.Row="1"
               Command="{Binding GenerateInvoiceCommand}"

@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="ByteArrayExtensions.cs" />
     <Compile Include="DeviceCommandResult.cs" />
+    <Compile Include="ExpandingEditor.cs" />
     <Compile Include="GenerateInvoiceCommand.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="ISaveFileStreamCommand.cs" />

@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -28,20 +29,21 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         public ICommand TakePictureCommand { get; }
 
-        private ITakePictureCommand TakePicture
-        {
-            get { return DependencyService.Get<ITakePictureCommand>(); }
-        }
-
         private async Task GenerateInvoiceAsync()
         {
-            var generateCommand = new GenerateInvoiceCommand();
+            var generateCommand = DependencyService.Get<IGenerateInvoiceCommand>();
             var result = await generateCommand.ExecuteAsync(new GenerateInvoiceContext { FileName = "syncfusionInvoice.pdf", Invoice = Model });
+
+            if (!result.IsValid())
+            {
+                Debug.WriteLine($"Generate Invoice FAILED! {result.Notification.ToString()}");
+            }
         }
 
         private async Task TakePictureAsync()
         {
-            var pictureResult = await TakePicture.ExecuteAsync(TakePictureRequest.Default);
+            var takePicture = DependencyService.Get<ITakePictureCommand>();
+            var pictureResult = await takePicture.ExecuteAsync(TakePictureRequest.Default);
 
             if (pictureResult.TaskResult == TaskResult.Success)
             {

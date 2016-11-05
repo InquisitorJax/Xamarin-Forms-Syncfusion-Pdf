@@ -1,6 +1,4 @@
-﻿using Plugin.Media;
-using Plugin.Media.Abstractions;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
 {
@@ -11,6 +9,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             InitializeComponent();
 
             DependencyService.Register<ITakePictureCommand, TakePictureCommand>();
+            DependencyService.Register<IGenerateInvoiceCommand, GenerateInvoiceCommand>();
 
             MainPage = new NavigationPage(new MainPage());
         }

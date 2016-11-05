@@ -64,10 +64,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             graphics.DrawLine(linePen, startPoint, endPoint);
 
             //Load the image from the disk.
-            using (MemoryStream imageStream = request.Invoice.Logo.ToMemoryStream())
+            if (request.Invoice.Logo != null)
             {
-                PdfBitmap image = new PdfBitmap(imageStream);
-                graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
+                using (MemoryStream imageStream = request.Invoice.Logo.AsMemoryStream())
+                {
+                    PdfBitmap image = new PdfBitmap(imageStream);
+                    graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
+                }
             }
 
             //Save the document.
