@@ -1,8 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 using Plugin.Permissions;
 using Xamarin.Forms;
 
@@ -27,7 +25,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.Droid
             LoadApplication(new App());
 
             DependencyService.Register<ISaveFileStreamCommand, AndroidSaveFileStreamCommand>();
-            DependencyService.Register<IMedia, CrossMedia.Current>();
+            //DependencyService.Register<IMedia, CrossMedia.Current>(); //TODO: For some reason does not compile :(
         }
     }
 }

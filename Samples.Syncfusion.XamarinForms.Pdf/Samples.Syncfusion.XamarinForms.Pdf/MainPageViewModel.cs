@@ -13,6 +13,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         public MainPageViewModel()
         {
             Model = new Invoice();
+            Model.Heading = "heading here";
             GenerateInvoiceCommand = DelegateCommand.FromAsyncHandler(GenerateInvoiceAsync);
             TakePictureCommand = DelegateCommand.FromAsyncHandler(TakePictureAsync);
         }

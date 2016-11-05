@@ -21,11 +21,14 @@
         <RowDefinition Height="*" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
-      <StackLayout>
+      <StackLayout Padding="0,12,0,0">
         <Image HeightRequest="100"
+               HorizontalOptions="CenterAndExpand"
                Source="{Binding Model.Logo,
-                                        Converter={StaticResource bisc}}"
+                                        Converter={StaticResource bisc},
+                                        ConverterParameter=icon}"
                WidthRequest="100" />
+        <Entry Placeholder="heading" Text="{Binding Model.Heading}" />
       </StackLayout>
       <Button Grid.Row="1"
               Command="{Binding GenerateInvoiceCommand}"

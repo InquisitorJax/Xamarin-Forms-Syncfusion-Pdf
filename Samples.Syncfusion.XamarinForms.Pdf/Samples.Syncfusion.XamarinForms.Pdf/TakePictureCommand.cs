@@ -1,9 +1,9 @@
-﻿using Plugin.Media.Abstractions;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 using Wibci.LogicCommand;
-using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
 {
@@ -31,7 +31,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
     {
         private IMedia MediaPicker
         {
-            get { return DependencyService.Get<IMedia>(); }
+            //get { return DependencyService.Get<IMedia>(); }
+            get { return CrossMedia.Current; }
         }
 
         public override async Task<SelectPictureResult> ExecuteAsync(TakePictureRequest request)
