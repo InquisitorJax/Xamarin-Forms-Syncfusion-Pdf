@@ -87,11 +87,11 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Wibci.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.0\lib\Wibci.Core.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.1\lib\Wibci.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Forms.Converters, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibcisoft.Xamarin.Forms.Converters.1.0.0\lib\Wibci.Xamarin.Forms.Converters.dll</HintPath>
+      <HintPath>..\..\packages\Wibcisoft.Xamarin.Forms.Converters.1.0.2\lib\Wibci.Xamarin.Forms.Converters.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -144,6 +144,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidResizeImageCommand.cs" />
     <Compile Include="AndroidSaveFileStreamCommand.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />

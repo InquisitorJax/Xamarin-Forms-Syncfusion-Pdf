@@ -25,6 +25,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.Droid
             LoadApplication(new App());
 
             DependencyService.Register<ISaveFileStreamCommand, AndroidSaveFileStreamCommand>();
+            DependencyService.Register<IResizeImageCommand, AndroidResizeImageCommand>();
             //DependencyService.Register<IMedia, CrossMedia.Current>(); //TODO: For some reason does not compile :(
         }
     }

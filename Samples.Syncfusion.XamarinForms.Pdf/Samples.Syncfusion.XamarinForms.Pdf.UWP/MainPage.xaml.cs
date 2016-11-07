@@ -11,6 +11,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.UWP
             LoadApplication(new Samples.Syncfusion.XamarinForms.Pdf.App());
 
             DependencyService.Register<ISaveFileStreamCommand, UWPSaveFileStreamCommand>();
+            DependencyService.Register<IResizeImageCommand, UWPResizeImageCommand>();
         }
     }
 }

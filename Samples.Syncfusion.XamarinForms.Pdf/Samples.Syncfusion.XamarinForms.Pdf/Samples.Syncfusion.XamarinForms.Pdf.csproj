@@ -43,6 +43,7 @@
     <Compile Include="ExpandingEditor.cs" />
     <Compile Include="GenerateInvoiceCommand.cs" />
     <Compile Include="Invoice.cs" />
+    <Compile Include="IResizeImageCommand.cs" />
     <Compile Include="ISaveFileStreamCommand.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -87,11 +88,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.0\lib\Wibci.Core.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.1\lib\Wibci.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Forms.Converters, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibcisoft.Xamarin.Forms.Converters.1.0.0\lib\Wibci.Xamarin.Forms.Converters.dll</HintPath>
+      <HintPath>..\..\packages\Wibcisoft.Xamarin.Forms.Converters.1.0.2\lib\Wibci.Xamarin.Forms.Converters.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">

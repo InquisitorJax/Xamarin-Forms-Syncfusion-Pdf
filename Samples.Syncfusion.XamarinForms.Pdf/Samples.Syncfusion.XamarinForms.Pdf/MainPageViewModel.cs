@@ -1,7 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -14,9 +13,9 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         public MainPageViewModel()
         {
             Model = new Invoice();
-            Model.Heading = "heading here";
-            GenerateInvoiceCommand = DelegateCommand.FromAsyncHandler(GenerateInvoiceAsync);
-            TakePictureCommand = DelegateCommand.FromAsyncHandler(TakePictureAsync);
+            Model.GenDefault();
+            GenerateInvoiceCommand = new DelegateCommand(GenerateInvoice);
+            TakePictureCommand = new DelegateCommand(TakePicture);
         }
 
         public ICommand GenerateInvoiceCommand { get; }
@@ -29,7 +28,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         public ICommand TakePictureCommand { get; }
 
-        private async Task GenerateInvoiceAsync()
+        private async void GenerateInvoice()
         {
             var generateCommand = DependencyService.Get<IGenerateInvoiceCommand>();
             var result = await generateCommand.ExecuteAsync(new GenerateInvoiceContext { FileName = "syncfusionInvoice.pdf", Invoice = Model });
@@ -40,14 +39,23 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             }
         }
 
-        private async Task TakePictureAsync()
+        private async void TakePicture()
         {
             var takePicture = DependencyService.Get<ITakePictureCommand>();
             var pictureResult = await takePicture.ExecuteAsync(TakePictureRequest.Default);
 
             if (pictureResult.TaskResult == TaskResult.Success)
             {
-                Model.Logo = pictureResult.Image;
+                var resizeImage = DependencyService.Get<IResizeImageCommand>();
+                var resizeResult = await resizeImage.ExecuteAsync(new ResizeImageContext { Height = 130, Width = 280, OriginalImage = pictureResult.Image });
+                if (resizeResult.TaskResult == TaskResult.Success)
+                {
+                    Model.Logo = resizeResult.ResizedImage;
+                }
+                else
+                {
+                    Model.Logo = pictureResult.Image;
+                }
             }
         }
     }
