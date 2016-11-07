@@ -272,6 +272,14 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Prism.Core/6.2.0": {
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
+        }
+      },
       "runtime.native.System.IO.Compression/4.1.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -2052,6 +2060,25 @@
           }
         }
       },
+      "Wibci.LogicCommand/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        }
+      },
+      "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
+        "dependencies": {
+          "Xamarin.Forms": "2.2.0.31"
+        },
+        "compile": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        }
+      },
       "Xam.Plugin.Media/2.6.0": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
@@ -2293,6 +2320,14 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.2.0": {
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -4207,6 +4242,25 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Wibci.LogicCommand/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        }
+      },
+      "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
+        "dependencies": {
+          "Xamarin.Forms": "2.2.0.31"
+        },
+        "compile": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        }
+      },
       "Xam.Plugin.Media/2.6.0": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
@@ -4449,6 +4503,14 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.2.0": {
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -6401,6 +6463,25 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Wibci.LogicCommand/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        }
+      },
+      "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
+        "dependencies": {
+          "Xamarin.Forms": "2.2.0.31"
+        },
+        "compile": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        }
+      },
       "Xam.Plugin.Media/2.6.0": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
@@ -6646,6 +6727,14 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.2.0": {
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -8565,6 +8654,25 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Wibci.LogicCommand/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        }
+      },
+      "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
+        "dependencies": {
+          "Xamarin.Forms": "2.2.0.31"
+        },
+        "compile": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        }
+      },
       "Xam.Plugin.Media/2.6.0": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
@@ -8811,6 +8919,14 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.2.0": {
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -10768,6 +10884,25 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Wibci.LogicCommand/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        }
+      },
+      "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
+        "dependencies": {
+          "Xamarin.Forms": "2.2.0.31"
+        },
+        "compile": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        }
+      },
       "Xam.Plugin.Media/2.6.0": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
@@ -11013,6 +11148,14 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.2.0": {
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -12932,6 +13075,25 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Wibci.LogicCommand/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        }
+      },
+      "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
+        "dependencies": {
+          "Xamarin.Forms": "2.2.0.31"
+        },
+        "compile": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        }
+      },
       "Xam.Plugin.Media/2.6.0": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
@@ -13178,6 +13340,14 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Prism.Core/6.2.0": {
+        "compile": {
+          "lib/wpa81/Prism.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Prism.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -15135,6 +15305,25 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Wibci.LogicCommand/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Core.dll": {}
+        }
+      },
+      "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
+        "dependencies": {
+          "Xamarin.Forms": "2.2.0.31"
+        },
+        "compile": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
+        }
+      },
       "Xam.Plugin.Media/2.6.0": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
@@ -15462,6 +15651,31 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "Prism.Core/6.2.0": {
+      "sha512": "jWJRmjvR/bJqVyLr3T9hKToyV6X0Q2DONtyfa8ZjHJwlkD/SF3YJM+z8xSdqQl8uPfLOmgBG6Xm4lPk69P5o0g==",
+      "type": "package",
+      "path": "Prism.Core/6.2.0",
+      "files": [
+        "Prism.Core.6.2.0.nupkg.sha512",
+        "Prism.Core.nuspec",
+        "lib/MonoAndroid10/Prism.dll",
+        "lib/MonoAndroid10/Prism.xml",
+        "lib/MonoTouch10/Prism.dll",
+        "lib/MonoTouch10/Prism.xml",
+        "lib/Xamarin.iOS10/Prism.dll",
+        "lib/Xamarin.iOS10/Prism.xml",
+        "lib/net45/Prism.dll",
+        "lib/net45/Prism.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.xml",
+        "lib/wp8/Prism.dll",
+        "lib/wp8/Prism.xml",
+        "lib/wp81/Prism.dll",
+        "lib/wp81/Prism.xml",
+        "lib/wpa81/Prism.dll",
+        "lib/wpa81/Prism.xml"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {
@@ -21352,6 +21566,29 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
+    "Wibci.LogicCommand/1.0.1": {
+      "sha512": "8zRT0ihpE50d+afACmMoUhGUZ/NntTyaeOQ0khEQYfs6bi/ef9Q9MIkgwA8Cizd0HDjJKWrvOBL3hs7TsnlyAw==",
+      "type": "package",
+      "path": "Wibci.LogicCommand/1.0.1",
+      "files": [
+        "Wibci.LogicCommand.1.0.1.nupkg.sha512",
+        "Wibci.LogicCommand.nuspec",
+        "lib/Wibci.Core.dll",
+        "lib/uap10.0/Wibci.Core.dll"
+      ]
+    },
+    "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
+      "sha512": "tJewGauc03slsctx52uPDB2FHIlLMCKVM9BKQbwMgQz7xH3vvckMJ+VBYO7xfnxM3jLZxcKV51CxCmIEZ25/eQ==",
+      "type": "package",
+      "path": "Wibcisoft.Xamarin.Forms.Converters/1.0.2",
+      "files": [
+        "Wibcisoft.Xamarin.Forms.Converters.1.0.2.nupkg.sha512",
+        "Wibcisoft.Xamarin.Forms.Converters.nuspec",
+        "lib/Wibci.Xamarin.Forms.Converters.dll",
+        "lib/net45/Wibci.Xamarin.Forms.Converters.dll",
+        "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll"
+      ]
+    },
     "Xam.Plugin.Media/2.6.0": {
       "sha512": "40mqsnmwMAWf7zIIs24qujCaitRtHmtoxtkWySVj77IVGfGTX49yTet2x5UoWN7BOtBXqe1aEaCOFLgy4vX4+Q==",
       "type": "package",
@@ -21621,7 +21858,10 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
+      "Prism.Core >= 6.2.0",
       "Syncfusion.Xamarin.Pdf >= 14.3.0.52",
+      "Wibci.LogicCommand >= 1.0.1",
+      "Wibcisoft.Xamarin.Forms.Converters >= 1.0.2",
       "Xam.Plugin.Media >= 2.6.0",
       "Xamarin.Forms >= 2.3.2.127"
     ],
