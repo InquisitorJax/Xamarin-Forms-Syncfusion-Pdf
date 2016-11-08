@@ -2,6 +2,8 @@
 using Android.Content.PM;
 using Android.OS;
 using Plugin.Permissions;
+using Wibci.Xamarin.Images;
+using Wibci.Xamarin.Images.Droid;
 using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf.Droid

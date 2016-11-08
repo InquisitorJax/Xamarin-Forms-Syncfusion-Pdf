@@ -149,6 +149,14 @@
       <HintPath>..\..\packages\Wibcisoft.Xamarin.Forms.Converters.1.0.2\lib\Wibci.Xamarin.Forms.Converters.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Wibci.Xamarin.Images, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.0.0\lib\xamarinios\Wibci.Xamarin.Images.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Wibci.Xamarin.Images.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.0.0\lib\xamarinios\Wibci.Xamarin.Images.iOS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>

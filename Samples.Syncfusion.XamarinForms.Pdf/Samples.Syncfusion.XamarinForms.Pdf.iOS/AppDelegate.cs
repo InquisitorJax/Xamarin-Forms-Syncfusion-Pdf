@@ -1,5 +1,7 @@
 ﻿using Foundation;
 using UIKit;
+using Wibci.Xamarin.Images;
+using Wibci.Xamarin.Images.iOS;
 using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf.iOS

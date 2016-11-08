@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using System.Diagnostics;
 using System.Windows.Input;
+using Wibci.Xamarin.Images;
 using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
@@ -48,7 +49,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             {
                 var resizeImage = DependencyService.Get<IResizeImageCommand>();
                 var resizeResult = await resizeImage.ExecuteAsync(new ResizeImageContext { Height = 130, Width = 280, OriginalImage = pictureResult.Image });
-                if (resizeResult.TaskResult == TaskResult.Success)
+                if (resizeResult.TaskResult == Wibci.Xamarin.Images.TaskResult.Success)
                 {
                     Model.Logo = resizeResult.ResizedImage;
                 }

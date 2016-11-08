@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using Wibci.Xamarin.Images;
+using Wibci.Xamarin.Images.UWP;
+using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf.UWP
 {
