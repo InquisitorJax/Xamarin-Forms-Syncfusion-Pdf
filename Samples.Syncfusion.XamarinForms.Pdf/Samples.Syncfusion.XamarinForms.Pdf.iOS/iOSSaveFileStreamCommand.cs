@@ -11,6 +11,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.iOS
     {
         public override Task<DeviceCommandResult> ExecuteAsync(SaveFileStreamContext request)
         {
+            //from: https://help.syncfusion.com/file-formats/pdf/working-with-xamarin (broken??)
             var retResult = new DeviceCommandResult();
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var stream = request.Stream;
@@ -43,8 +44,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.iOS
             QLPreviewItem item = new QLPreviewItemBundle(request.FileName, filePath);
 
             qlPreview.DataSource = new PreviewControllerDS(item);
-
-            //UIViewController uiView = currentView as UIViewController;
 
             currentController.PresentViewController(qlPreview, true, null);
 

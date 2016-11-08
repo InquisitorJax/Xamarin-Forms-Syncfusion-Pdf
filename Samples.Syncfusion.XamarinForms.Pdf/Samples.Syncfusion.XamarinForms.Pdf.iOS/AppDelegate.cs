@@ -22,7 +22,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
-            DependencyService.Register<ISaveFileStreamCommand, UWPSaveFileStreamCommand>();
+            DependencyService.Register<ISaveFileStreamCommand, iOSSaveFileStreamCommand>();
             DependencyService.Register<IResizeImageCommand, iOSImageResizeCommand>();
 
             return base.FinishedLaunching(app, options);
