@@ -41,7 +41,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 using (MemoryStream imageStream = request.Invoice.Logo.AsMemoryStream())
                 {
                     PdfBitmap image = new PdfBitmap(imageStream);
-                    graphics.DrawImage(image, new RectangleF(0, y, 390, 130));
+                    graphics.DrawImage(image, new RectangleF(0, y, request.LogoWidth, request.LogoHeight));
                 }
             }
 
@@ -104,5 +104,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         public string FileName { get; set; }
 
         public Invoice Invoice { get; set; }
+
+        public int LogoHeight { get; set; }
+        public int LogoWidth { get; set; }
     }
 }

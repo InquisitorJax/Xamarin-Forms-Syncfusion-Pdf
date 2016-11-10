@@ -9,6 +9,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 {
     public class MainPageViewModel : BindableBase
     {
+        private int _logoHeight;
+        private int _logoWidth;
         private Invoice _model;
 
         public MainPageViewModel()
@@ -32,7 +34,15 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         private async void GenerateInvoice()
         {
             var generateCommand = DependencyService.Get<IGenerateInvoiceCommand>();
-            var result = await generateCommand.ExecuteAsync(new GenerateInvoiceContext { FileName = "syncfusionInvoice.pdf", Invoice = Model });
+            var context = new GenerateInvoiceContext
+            {
+                FileName = "syncfusionInvoice.pdf",
+                Invoice = Model,
+                LogoHeight = _logoHeight,
+                LogoWidth = _logoWidth
+            };
+
+            var result = await generateCommand.ExecuteAsync(context);
 
             if (!result.IsValid())
             {
@@ -48,10 +58,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             if (pictureResult.TaskResult == TaskResult.Success)
             {
                 var resizeImage = DependencyService.Get<IResizeImageCommand>();
-                var resizeResult = await resizeImage.ExecuteAsync(new ResizeImageContext { Height = 130, Width = 280, OriginalImage = pictureResult.Image });
+                var resizeResult = await resizeImage.ExecuteAsync(new ResizeImageContext { Height = 130, Width = 130, OriginalImage = pictureResult.Image });
                 if (resizeResult.TaskResult == Wibci.Xamarin.Images.TaskResult.Success)
                 {
                     Model.Logo = resizeResult.ResizedImage;
+                    _logoWidth = resizeResult.ResizedWidth;
+                    _logoHeight = resizeResult.ResizedHeight;
                 }
                 else
                 {

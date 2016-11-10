@@ -2068,7 +2068,7 @@
           "lib/uap10.0/Wibci.Core.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.0.0": {
+      "Wibci.Xamarin.Images/1.2.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -4263,7 +4263,7 @@
           "lib/uap10.0/Wibci.Core.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.0.0": {
+      "Wibci.Xamarin.Images/1.2.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -6497,7 +6497,7 @@
           "lib/uap10.0/Wibci.Core.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.0.0": {
+      "Wibci.Xamarin.Images/1.2.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -8701,7 +8701,7 @@
           "lib/uap10.0/Wibci.Core.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.0.0": {
+      "Wibci.Xamarin.Images/1.2.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -10944,7 +10944,7 @@
           "lib/uap10.0/Wibci.Core.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.0.0": {
+      "Wibci.Xamarin.Images/1.2.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -13148,7 +13148,7 @@
           "lib/uap10.0/Wibci.Core.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.0.0": {
+      "Wibci.Xamarin.Images/1.2.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -15391,7 +15391,7 @@
           "lib/uap10.0/Wibci.Core.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.0.0": {
+      "Wibci.Xamarin.Images/1.2.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -21668,20 +21668,20 @@
         "lib/uap10.0/Wibci.Core.dll"
       ]
     },
-    "Wibci.Xamarin.Images/1.0.0": {
-      "sha512": "o24Zo/qhpUoUZlXSPsngJP4VssMNWJHoz1SulvTYfNTXb1zxjVO7h2gln+nF1Q7GBl448H2GZ57XumGpMVQ1xA==",
+    "Wibci.Xamarin.Images/1.2.0": {
+      "sha512": "H7GNQbVqcPu3v9MR4eNa97QUYMuKmg9TwPJVhFnxjKueOANSa8F9DSVLpb4cq4gt4wyURQbSxMkUtoFn2bnasA==",
       "type": "package",
-      "path": "Wibci.Xamarin.Images/1.0.0",
+      "path": "Wibci.Xamarin.Images/1.2.0",
       "files": [
-        "Wibci.Xamarin.Images.1.0.0.nupkg.sha512",
+        "Wibci.Xamarin.Images.1.2.0.nupkg.sha512",
         "Wibci.Xamarin.Images.nuspec",
         "lib/MonoAndroid/Wibci.Xamarin.Images.Droid.dll",
         "lib/MonoAndroid/Wibci.Xamarin.Images.dll",
+        "lib/MonoTouch/Wibci.Xamarin.Images.dll",
+        "lib/MonoTouch/Wibci.Xamarin.Images.iOS.dll",
         "lib/Wibci.Xamarin.Images.dll",
         "lib/uap10.0/Wibci.Xamarin.Images.UWP.dll",
-        "lib/uap10.0/Wibci.Xamarin.Images.dll",
-        "lib/xamarinios/Wibci.Xamarin.Images.dll",
-        "lib/xamarinios/Wibci.Xamarin.Images.iOS.dll"
+        "lib/uap10.0/Wibci.Xamarin.Images.dll"
       ]
     },
     "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
@@ -21968,7 +21968,7 @@
       "Prism.Core >= 6.2.0",
       "Syncfusion.Xamarin.Pdf >= 14.3.0.52",
       "Wibci.LogicCommand >= 1.0.1",
-      "Wibci.Xamarin.Images >= 1.0.0",
+      "Wibci.Xamarin.Images >= 1.2.0",
       "Wibcisoft.Xamarin.Forms.Converters >= 1.0.2",
       "Xam.Plugin.Media >= 2.6.0",
       "Xamarin.Forms >= 2.3.2.127"

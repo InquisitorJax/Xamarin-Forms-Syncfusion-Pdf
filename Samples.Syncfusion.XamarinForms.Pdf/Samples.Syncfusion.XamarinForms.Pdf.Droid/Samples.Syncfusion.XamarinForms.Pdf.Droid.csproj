@@ -95,11 +95,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Images, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.0.0\lib\MonoAndroid\Wibci.Xamarin.Images.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.2.0\lib\MonoAndroid\Wibci.Xamarin.Images.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Images.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.0.0\lib\MonoAndroid\Wibci.Xamarin.Images.Droid.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.2.0\lib\MonoAndroid\Wibci.Xamarin.Images.Droid.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
