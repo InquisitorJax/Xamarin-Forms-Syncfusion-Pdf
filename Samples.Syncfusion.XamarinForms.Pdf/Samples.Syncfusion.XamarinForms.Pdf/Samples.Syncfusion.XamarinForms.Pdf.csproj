@@ -43,6 +43,7 @@
     <Compile Include="ExpandingEditor.cs" />
     <Compile Include="GenerateInvoiceCommand.cs" />
     <Compile Include="Invoice.cs" />
+    <Compile Include="InvoiceItem.cs" />
     <Compile Include="IResizeImageCommand.cs" />
     <Compile Include="ISaveFileStreamCommand.cs" />
     <Compile Include="MainPage.xaml.cs">

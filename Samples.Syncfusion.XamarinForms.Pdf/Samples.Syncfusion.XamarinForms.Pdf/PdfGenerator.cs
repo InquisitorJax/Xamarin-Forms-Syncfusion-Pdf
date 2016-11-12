@@ -1,6 +1,7 @@
 ﻿using Syncfusion.Drawing;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Interactive;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -109,6 +110,18 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             PdfTextElement element = new PdfTextElement(text, font, brush);
             PdfLayoutResult result = element.Draw(CurrentPage, new PointF(PageWidth - textSize.Width - xOffset, y));
             //CurrentPageGraphics.DrawString(text, font, brush, position);
+            return result;
+        }
+
+        public PdfLayoutResult AddWebLink(float x, float y, string webLink, string linkText, PdfFont font = null)
+        {
+            font = font ?? NormalFont;
+
+            PdfTextWebLink textLink = new PdfTextWebLink();
+            textLink.Url = webLink;
+            textLink.Text = linkText;
+            textLink.Font = font;
+            var result = textLink.DrawTextWebLink(CurrentPage, new PointF(x, y));
             return result;
         }
 

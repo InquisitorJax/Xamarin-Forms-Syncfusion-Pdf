@@ -1,5 +1,6 @@
 ﻿using Prism.Mvvm;
 using System;
+using System.Collections.ObjectModel;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
 {
@@ -9,16 +10,22 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         private double _amount;
         private string _businessInfo;
         private string _businessName;
+        private string _businessUrl;
         private string _currency;
         private string _customer;
         private DateTime _date;
         private string _description;
         private string _heading;
+        private ObservableCollection<InvoiceItem> _items;
         private byte[] _logo;
-
         private int _number;
 
         private int _vatPercentage;
+
+        public Invoice()
+        {
+            Items = new ObservableCollection<InvoiceItem>();
+        }
 
         public string Address
         {
@@ -42,6 +49,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             get { return _businessName; }
             set { SetProperty(ref _businessName, value); }
+        }
+
+        public string BusinessUrl
+        {
+            get { return _businessUrl; }
+            set { SetProperty(ref _businessUrl, value); }
         }
 
         public string Currency
@@ -74,6 +87,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             set { SetProperty(ref _heading, value); }
         }
 
+        public ObservableCollection<InvoiceItem> Items
+        {
+            get { return _items; }
+            private set { SetProperty(ref _items, value); }
+        }
+
         public byte[] Logo
         {
             get { return _logo; }
@@ -99,9 +118,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             Address = $"20 Dunbar Street {Environment.NewLine}Table View{Environment.NewLine}Western Cape{Environment.NewLine}South Africa{Environment.NewLine}7441";
 
-            Currency = "R";
-            Amount = 76543.21;
-
             Number = 12345;
 
             VatPercentage = 14;
@@ -111,6 +127,17 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             BusinessName = "Z's Alien Hunters For Hire";
 
             BusinessInfo = $"Vat#: 456789{Environment.NewLine}{Environment.NewLine}13 Pragmatic Drive{Environment.NewLine}Coin Business Park{Environment.NewLine}Bellville{Environment.NewLine}7550{Environment.NewLine}{Environment.NewLine}Customer Support (555) 555-76343";
+
+            double total = 0;
+            for (int i = 1; i <= 10; i++)
+            {
+                var item = new InvoiceItem { Quantity = i, ItemAmount = 33.2, Name = "Item number " + i };
+                Items.Add(item);
+                total += item.Amount;
+            }
+
+            Currency = "R";
+            Amount = total;
         }
     }
 }
