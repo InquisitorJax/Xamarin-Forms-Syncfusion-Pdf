@@ -12,7 +12,16 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.UWP
         {
             StorageFolder local = ApplicationData.Current.LocalFolder;
 
-            StorageFile outFile = await local.CreateFileAsync(request.FileName, CreationCollisionOption.ReplaceExisting);
+            StorageFile outFile;
+            try
+            {
+                outFile = await local.CreateFileAsync(request.FileName, CreationCollisionOption.ReplaceExisting);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                //existing file with same name is likely open
+                return new DeviceCommandResult { TaskResult = TaskResult.AccessDenied };
+            }
 
             using (Stream outStream = await outFile.OpenStreamForWriteAsync())
             {

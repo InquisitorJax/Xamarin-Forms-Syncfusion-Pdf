@@ -2092,7 +2092,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.0": {
+      "Xam.Plugin.Media/2.6.1": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -4287,7 +4287,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.0": {
+      "Xam.Plugin.Media/2.6.1": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -6521,7 +6521,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.0": {
+      "Xam.Plugin.Media/2.6.1": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -8725,7 +8725,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.0": {
+      "Xam.Plugin.Media/2.6.1": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -10968,7 +10968,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.0": {
+      "Xam.Plugin.Media/2.6.1": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -13172,7 +13172,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.0": {
+      "Xam.Plugin.Media/2.6.1": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -15415,7 +15415,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.0": {
+      "Xam.Plugin.Media/2.6.1": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -21696,12 +21696,12 @@
         "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll"
       ]
     },
-    "Xam.Plugin.Media/2.6.0": {
-      "sha512": "40mqsnmwMAWf7zIIs24qujCaitRtHmtoxtkWySVj77IVGfGTX49yTet2x5UoWN7BOtBXqe1aEaCOFLgy4vX4+Q==",
+    "Xam.Plugin.Media/2.6.1": {
+      "sha512": "gtwAgBKHjMM7D1QPKiZuVCwxCMj2bxTJU1K9d2YwnnTt/q0xokqziUEvKDHPDvCLHkryE4TfhS0iAdYv6QrFzA==",
       "type": "package",
-      "path": "Xam.Plugin.Media/2.6.0",
+      "path": "Xam.Plugin.Media/2.6.1",
       "files": [
-        "Xam.Plugin.Media.2.6.0.nupkg.sha512",
+        "Xam.Plugin.Media.2.6.1.nupkg.sha512",
         "Xam.Plugin.Media.nuspec",
         "lib/MonoAndroid10/Plugin.Media.Abstractions.dll",
         "lib/MonoAndroid10/Plugin.Media.Abstractions.pdb",
@@ -21970,7 +21970,7 @@
       "Wibci.LogicCommand >= 1.0.1",
       "Wibci.Xamarin.Images >= 1.2.0",
       "Wibcisoft.Xamarin.Forms.Converters >= 1.0.2",
-      "Xam.Plugin.Media >= 2.6.0",
+      "Xam.Plugin.Media >= 2.6.1",
       "Xamarin.Forms >= 2.3.2.127"
     ],
     "UAP,Version=v10.0": []

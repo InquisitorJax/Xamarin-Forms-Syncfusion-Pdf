@@ -1,11 +1,7 @@
-﻿using Syncfusion.Drawing;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Graphics;
+﻿using Syncfusion.Pdf.Graphics;
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using Wibci.LogicCommand;
-using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
 {
@@ -26,76 +22,69 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             GenerateDefaultInvoiceResult retResult = new GenerateDefaultInvoiceResult();
 
             //https://help.syncfusion.com/file-formats/pdf/getting-started
+            PdfGenerator pdf = new PdfGenerator();
+            pdf.Setup("Invoice");
+            float y = GenerateHeader(request, pdf);
 
-            //Create a new PDF document.
-            PdfDocument document = new PdfDocument();
-            //Add a page to the document.
-            PdfPage page = document.Pages.Add();
-            //Create PDF graphics for the page.
-            PdfGraphics graphics = page.Graphics;
+            y = GenerateSimpleBody(request, pdf, y);
 
-            int y = 10;
-            //Load the image from the disk.
-            if (request.Invoice.Logo != null)
-            {
-                using (MemoryStream imageStream = request.Invoice.Logo.AsMemoryStream())
-                {
-                    PdfBitmap image = new PdfBitmap(imageStream);
-                    graphics.DrawImage(image, new RectangleF(0, y, request.LogoWidth, request.LogoHeight));
-                }
-            }
-
-            y = y + 150;
-
-            PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
-            PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
-
-            RectangleF bounds = new RectangleF(0, y, graphics.ClientSize.Width, 30);
-            //Draws a rectangle to place the heading in that region.
-            graphics.DrawRectangle(solidBrush, bounds);
-            //Creates a font for adding the heading in the page
-            PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
-            //Creates a text element to add the invoice number
-            PdfTextElement element = new PdfTextElement("INVOICE 777", subHeadingFont);
-            element.Brush = PdfBrushes.White;
-
-            y = y + 8;
-            //Draws the heading on the page
-            PdfLayoutResult result = element.Draw(page, new PointF(10, y));
-            string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
-            //Measures the width of the text to place it in the correct location
-            SizeF textSize = subHeadingFont.MeasureString(currentDate);
-            PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
-            //Draws the date by using DrawString method
-            graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
-
-            //Creates text elements to add the address and draw it to the page.
-            element = new PdfTextElement(request.Invoice.Heading, timesRoman);
-            element.Brush = solidBrush;
-            result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
-            PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
-            PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
-            PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
-            //Draws a line at the bottom of the address
-            graphics.DrawLine(linePen, startPoint, endPoint);
-
-            element = new PdfTextElement(request.Invoice.Description, timesRoman);
-            element.Brush = solidBrush;
-            result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
-
+            GenerateFooter(request, pdf);
             //Save the document.
-            using (MemoryStream ms = new MemoryStream())
-            {
-                document.Save(ms); //TODO: platform Save
-                var saveCommand = DependencyService.Get<ISaveFileStreamCommand>();
-                var saveResult = await saveCommand.ExecuteAsync(new SaveFileStreamContext { FileName = request.FileName, ContentType = "application/pdf", Stream = ms, LaunchFile = true });
-                retResult.Notification.AddRange(saveResult.Notification);
-            }
-
-            //Close the document.
-            document.Close(true);
+            await pdf.SaveAsync(request.FileName);
 
             return retResult;
+        }
+
+        private void GenerateFooter(GenerateInvoiceContext request, PdfGenerator pdf)
+        {
+        }
+
+        private float GenerateHeader(GenerateInvoiceContext request, PdfGenerator pdf)
+        {
+            PdfLayoutResult result = null;
+            float y = 10;
+            //Load the image from the disk.
+            pdf.AddImage(request.Invoice.Logo, 0, y, request.LogoWidth, request.LogoHeight);
+
+            y = y + 150;
+            pdf.DrawRectangle(0, y, pdf.PageWidth, 30);
+
+            //Creates a text element to add the invoice number
+            y += 5;
+            result = pdf.AddText("INVOICE ", 10, y, pdf.SubHeadingFont, PdfBrushes.White);
+            result = pdf.AddText("#" + request.Invoice.Number.ToString(), result.Bounds.Right + 5, y, pdf.SubHeadingFont, PdfBrushes.White);
+
+            //Draws the date on the right of the page
+            string currentDate = "Date " + DateTime.Now.ToString("MM/dd/yyyy");
+            pdf.DrawTextRight(currentDate, 10, y, pdf.SubHeadingFont, PdfBrushes.White);
+
+            y = result.Bounds.Bottom;
+
+            y += 15;
+            //Creates text elements to add the address and draw it to the page.
+            result = pdf.AddText(request.Invoice.Heading, 10, y, pdf.SubHeadingFont);
+            y = result.Bounds.Bottom;
+
+            y += 3;
+            pdf.DrawHorizontalLine(0, pdf.PageWidth, y, 0.7f, pdf.AccentColor);
+
+            y += 1;
+
+            return y;
+        }
+
+        private void GenerateItemizedBody(GenerateInvoiceContext request, PdfGenerator pdf)
+        {
+        }
+
+        private float GenerateSimpleBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
+        {
+            float y = currentY;
+
+            y += 10;
+            PdfLayoutResult result = pdf.AddText(request.Invoice.Description, 10, y);
+
+            return y;
         }
     }
 
@@ -107,5 +96,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         public int LogoHeight { get; set; }
         public int LogoWidth { get; set; }
+        public bool SimpleFormat { get; set; }
     }
 }
