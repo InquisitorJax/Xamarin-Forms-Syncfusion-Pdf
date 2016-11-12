@@ -34,6 +34,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         public PdfDocument Document { get; set; }
         public PdfGraphics Graphics { get; set; }
         public PdfFont NormalFont { get; set; }
+        public PdfFont NormalFontBold { get; set; }
         public PdfPage Page { get; set; }
 
         public float PageWidth
@@ -72,12 +73,42 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             CurrentPage = page;
         }
 
+        public PdfLayoutResult AddRectangleText(string leftText, string rightText, float y, float height, PdfBrush rectangleBrush = null, PdfBrush textBrush = null, PdfFont font = null)
+        {
+            rectangleBrush = rectangleBrush ?? AccentBrush;
+            textBrush = textBrush ?? PdfBrushes.White;
+            font = font ?? SubHeadingFont;
+
+            DrawRectangle(0, y, PageWidth, height, rectangleBrush);
+
+            y += 5;
+            PdfLayoutResult result = AddText(leftText, 10, y, font, textBrush);
+
+            AddTextRight(rightText, 10, y, font, textBrush);
+
+            return result;
+        }
+
         public PdfLayoutResult AddText(string text, float x, float y, PdfFont font = null, PdfBrush brush = null)
         {
             font = font ?? NormalFont;
             brush = brush ?? AccentBrush;
             PdfTextElement element = new PdfTextElement(text, font, brush);
             PdfLayoutResult result = element.Draw(CurrentPage, new PointF(x, y));
+            return result;
+        }
+
+        public PdfLayoutResult AddTextRight(string text, float xOffset, float y, PdfFont font = null, PdfBrush brush = null)
+        {
+            font = font ?? NormalFont;
+            brush = brush ?? AccentBrush;
+
+            SizeF textSize = font.MeasureString(text);
+            PointF position = new PointF(PageWidth - textSize.Width - xOffset, y);
+
+            PdfTextElement element = new PdfTextElement(text, font, brush);
+            PdfLayoutResult result = element.Draw(CurrentPage, new PointF(PageWidth - textSize.Width - xOffset, y));
+            //CurrentPageGraphics.DrawString(text, font, brush, position);
             return result;
         }
 
@@ -96,17 +127,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             brush = brush ?? AccentBrush;
             //Draws a rectangle to place the heading in that region.
             CurrentPageGraphics.DrawRectangle(brush, bounds);
-        }
-
-        public void DrawTextRight(string text, float xOffset, float y, PdfFont font = null, PdfBrush brush = null)
-        {
-            font = font ?? NormalFont;
-            brush = brush ?? AccentBrush;
-
-            SizeF textSize = SubHeadingFont.MeasureString(text);
-            PointF position = new PointF(PageWidth - textSize.Width - xOffset, y);
-
-            CurrentPageGraphics.DrawString(text, font, brush, position);
         }
 
         public async Task<TaskResult> SaveAsync(string fileName, bool launchFile = true)
@@ -136,6 +156,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             AccentColor = new PdfColor(126, 151, 173);
             AccentBrush = new PdfSolidBrush(AccentColor);
             NormalFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+            PdfFontStyle style = PdfFontStyle.Bold;
+            NormalFontBold = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, style);
             SubHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 18);
         }
     }

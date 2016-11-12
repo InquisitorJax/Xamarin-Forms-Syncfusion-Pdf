@@ -1,5 +1,6 @@
 ﻿using Syncfusion.Pdf.Graphics;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Wibci.LogicCommand;
 
@@ -26,7 +27,14 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             pdf.Setup("Invoice");
             float y = GenerateHeader(request, pdf);
 
-            y = GenerateSimpleBody(request, pdf, y);
+            if (request.SimpleFormat)
+            {
+                y = GenerateSimpleBody(request, pdf, y);
+            }
+            else
+            {
+                y = GenerateItemizedBody(request, pdf, y);
+            }
 
             GenerateFooter(request, pdf);
             //Save the document.
@@ -43,20 +51,27 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             PdfLayoutResult result = null;
             float y = 10;
-            //Load the image from the disk.
+            //Add IMAGE
             pdf.AddImage(request.Invoice.Logo, 0, y, request.LogoWidth, request.LogoHeight);
 
-            y = y + 150;
-            pdf.DrawRectangle(0, y, pdf.PageWidth, 30);
+            var font = pdf.NormalFontBold;
+            result = pdf.AddText(request.Invoice.BusinessName, request.LogoWidth + 10, y, font);
+            result = pdf.AddText(request.Invoice.BusinessInfo, request.LogoWidth + 10, result.Bounds.Bottom + 2);
+            float businessY = result.Bounds.Bottom + 10;
 
-            //Creates a text element to add the invoice number
-            y += 5;
-            result = pdf.AddText("INVOICE ", 10, y, pdf.SubHeadingFont, PdfBrushes.White);
-            result = pdf.AddText("#" + request.Invoice.Number.ToString(), result.Bounds.Right + 5, y, pdf.SubHeadingFont, PdfBrushes.White);
+            string customer = request.Invoice.Customer + Environment.NewLine + request.Invoice.Address;
+            result = pdf.AddTextRight(customer, 0, y, font);
+            float addressX = result.Bounds.Left;
 
-            //Draws the date on the right of the page
-            string currentDate = "Date " + DateTime.Now.ToString("MM/dd/yyyy");
-            pdf.DrawTextRight(currentDate, 10, y, pdf.SubHeadingFont, PdfBrushes.White);
+            float addressY = result.Bounds.Bottom + 10;
+            float imageY = request.LogoHeight + 15;
+
+            float actualY = Enumerable.Max(new float[] { businessY, addressY, imageY });
+
+            y += actualY;
+            string leftText = "INVOICE #" + request.Invoice.Number.ToString();
+            string rightText = DateTime.Now.ToString("dd MMM yyyy");
+            result = pdf.AddRectangleText(leftText, rightText, y, 30);
 
             y = result.Bounds.Bottom;
 
@@ -73,8 +88,14 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             return y;
         }
 
-        private void GenerateItemizedBody(GenerateInvoiceContext request, PdfGenerator pdf)
+        private float GenerateItemizedBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
         {
+            float y = currentY;
+
+            y += 10;
+            PdfLayoutResult result = pdf.AddText(request.Invoice.Description, 10, y);
+
+            return y;
         }
 
         private float GenerateSimpleBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
@@ -83,6 +104,36 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             y += 10;
             PdfLayoutResult result = pdf.AddText(request.Invoice.Description, 10, y);
+
+            y = result.Bounds.Bottom;
+            y = GenerateTotal(request, pdf, y);
+
+            return y;
+        }
+
+        private float GenerateTotal(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
+        {
+            float y = currentY;
+
+            double vatAmount = request.Invoice.Amount * (request.Invoice.VatPercentage / 100d);
+            double total = request.Invoice.Amount + vatAmount;
+            total = Math.Round(total, 2);
+
+            y += 10;
+            string leftText = "TOTAL";
+            string rightText = request.Invoice.Currency + " " + request.Invoice.Amount.ToString();
+            PdfLayoutResult result = pdf.AddRectangleText(leftText, rightText, y, 30, PdfBrushes.White, pdf.AccentBrush, pdf.NormalFontBold);
+            y = result.Bounds.Bottom;
+
+            leftText = "VAT";
+            rightText = request.Invoice.VatPercentage + "%";
+            result = pdf.AddRectangleText(leftText, rightText, y, 30, PdfBrushes.White, pdf.AccentBrush, pdf.NormalFontBold);
+            y = result.Bounds.Bottom;
+
+            y += 5;
+            leftText = "Total Due";
+            rightText = request.Invoice.Currency + " " + total.ToString();
+            result = pdf.AddRectangleText(leftText, rightText, y, 30);
 
             return y;
         }

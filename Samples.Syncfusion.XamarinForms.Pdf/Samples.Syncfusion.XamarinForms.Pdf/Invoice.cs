@@ -8,7 +8,9 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         private string _address;
         private double _amount;
         private string _businessInfo;
+        private string _businessName;
         private string _currency;
+        private string _customer;
         private DateTime _date;
         private string _description;
         private string _heading;
@@ -36,10 +38,22 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             set { SetProperty(ref _businessInfo, value); }
         }
 
+        public string BusinessName
+        {
+            get { return _businessName; }
+            set { SetProperty(ref _businessName, value); }
+        }
+
         public string Currency
         {
             get { return _currency; }
             set { SetProperty(ref _currency, value); }
+        }
+
+        public string Customer
+        {
+            get { return _customer; }
+            set { SetProperty(ref _customer, value); }
         }
 
         public DateTime Date
@@ -83,7 +97,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             Heading = "Something to be done";
             Description = $"Please do something with the tasl{Environment.NewLine}Line2: Something more.... {Environment.NewLine}Line 3: and then something more";
 
-            Address = $"20 Dunbar Street {Environment.NewLine} Table View{Environment.NewLine}Western Cape{Environment.NewLine}South Africa{Environment.NewLine}7441";
+            Address = $"20 Dunbar Street {Environment.NewLine}Table View{Environment.NewLine}Western Cape{Environment.NewLine}South Africa{Environment.NewLine}7441";
 
             Currency = "R";
             Amount = 76543.21;
@@ -92,7 +106,11 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             VatPercentage = 14;
 
-            BusinessInfo = $"Vat#: 456789{Environment.NewLine}{Environment.NewLine}13 Pragmatic Drive{Environment.NewLine}Coin Business Park{Environment.NewLine}Bellville{Environment.NewLine}7550";
+            Customer = "Quark the Ferengy";
+
+            BusinessName = "Z's Alien Hunters For Hire";
+
+            BusinessInfo = $"Vat#: 456789{Environment.NewLine}{Environment.NewLine}13 Pragmatic Drive{Environment.NewLine}Coin Business Park{Environment.NewLine}Bellville{Environment.NewLine}7550{Environment.NewLine}{Environment.NewLine}Customer Support (555) 555-76343";
         }
     }
 }

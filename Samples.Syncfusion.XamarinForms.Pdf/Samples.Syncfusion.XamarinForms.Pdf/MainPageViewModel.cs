@@ -39,12 +39,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 FileName = "syncfusionInvoice.pdf",
                 Invoice = Model,
                 LogoHeight = _logoHeight,
-                LogoWidth = _logoWidth
+                LogoWidth = _logoWidth,
+                SimpleFormat = true
             };
 
             var result = await generateCommand.ExecuteAsync(context);
 
-            if (!result.IsValid())
+            if (!result.IsValid() || result.TaskResult != TaskResult.Success)
             {
                 Debug.WriteLine($"Generate Invoice FAILED! {result.Notification.ToString()}");
             }
