@@ -3,5 +3,3 @@ some simple sample code on using the awesome xamarin pdf component from syncfusi
 
 NOTE: Setting up syncfusion nuget packages in Visual Studio
 https://help.syncfusion.com/xamarin/introduction/download-and-installation#configuring-syncfusion-nuget-packages-in-visual-studio
-
-TODO: Only tested with Android & UWP - Fix up iOS to work as well
