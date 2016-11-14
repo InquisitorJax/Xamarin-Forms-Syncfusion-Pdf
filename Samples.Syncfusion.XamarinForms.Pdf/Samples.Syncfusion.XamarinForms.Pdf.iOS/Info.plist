@@ -29,12 +29,6 @@
     <key>CFBundleVersion</key>
     <string>1.0</string>
     <key>CFBundleIconFiles</key>
-    <key>NSCameraUsageDescription</key>
-    <string>This app needs access to the camera to take photos.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>This app needs access to photos.</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>This app needs access to microphone.</string>
     <array>
       <string>Icon-60@2x</string>
       <string>Icon-60@3x</string>
@@ -52,6 +46,12 @@
       <string>Icon-Small@2x</string>
       <string>Icon-Small@3x</string>
     </array>
+    <key>NSCameraUsageDescription</key>
+    <string>This app needs access to the camera to take photos.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app needs access to photos.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app needs access to microphone.</string>
     <key>UILaunchStoryboardName</key>
     <string>LaunchScreen</string>
   </dict>

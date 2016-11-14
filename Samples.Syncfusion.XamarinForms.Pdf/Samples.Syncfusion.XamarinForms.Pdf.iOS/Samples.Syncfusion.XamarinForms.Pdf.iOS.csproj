@@ -150,7 +150,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Images, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.2.0\lib\Wibci.Xamarin.Images.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.3.0\lib\xamarinios\Wibci.Xamarin.Images.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Wibci.Xamarin.Images.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.3.0\lib\xamarinios\Wibci.Xamarin.Images.iOS.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">

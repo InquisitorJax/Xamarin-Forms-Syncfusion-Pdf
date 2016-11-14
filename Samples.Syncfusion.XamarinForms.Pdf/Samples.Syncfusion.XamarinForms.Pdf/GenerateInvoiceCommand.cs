@@ -45,6 +45,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         private void GenerateFooter(GenerateInvoiceContext request, PdfGenerator pdf)
         {
+            //https://help.syncfusion.com/file-formats/pdf/working-with-headers-and-footers
         }
 
         private float GenerateHeader(GenerateInvoiceContext request, PdfGenerator pdf)
