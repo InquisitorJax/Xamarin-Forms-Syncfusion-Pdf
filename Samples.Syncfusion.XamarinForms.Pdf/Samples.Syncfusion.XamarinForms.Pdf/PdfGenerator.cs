@@ -125,8 +125,9 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             return result;
         }
 
-        public void DrawHorizontalLine(float xStart, float xEnd, float y, float lineWidth, PdfColor color)
+        public void DrawHorizontalLine(float xStart, float xEnd, float y, float lineWidth, PdfColor color, PdfGraphics graphics = null)
         {
+            graphics = graphics ?? CurrentPageGraphics;
             PdfPen linePen = new PdfPen(color, lineWidth);
             PointF startPoint = new PointF(xStart, y);
             PointF endPoint = new PointF(xEnd, y);
@@ -140,6 +141,18 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             brush = brush ?? AccentBrush;
             //Draws a rectangle to place the heading in that region.
             CurrentPageGraphics.DrawRectangle(brush, bounds);
+        }
+
+        public void DrawWebLink(float x, float y, string webLink, string linkText, PdfFont font = null, PdfGraphics graphics = null)
+        {
+            font = font ?? NormalFont;
+            graphics = graphics ?? CurrentPageGraphics;
+
+            PdfTextWebLink textLink = new PdfTextWebLink();
+            textLink.Url = webLink;
+            textLink.Text = linkText;
+            textLink.Font = font;
+            textLink.DrawTextWebLink(graphics, new PointF(x, y));
         }
 
         public async Task<TaskResult> SaveAsync(string fileName, bool launchFile = true)

@@ -1,4 +1,7 @@
-﻿using Syncfusion.Pdf.Graphics;
+﻿using Syncfusion.Drawing;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Interactive;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,6 +49,27 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         private void GenerateFooter(GenerateInvoiceContext request, PdfGenerator pdf)
         {
             //https://help.syncfusion.com/file-formats/pdf/working-with-headers-and-footers
+
+            RectangleF bounds = new RectangleF(0, 0, pdf.PageWidth, 50);
+
+            PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
+
+            PdfTextWebLink textLink = new PdfTextWebLink();
+
+            //BUG: NullReferenceException when trying to put a web link into the footer
+            //pdf.DrawWebLink(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont, footer.Graphics);
+
+            PdfCompositeField compositeField = new PdfCompositeField(pdf.NormalFont, pdf.AccentBrush, "Awesome control library for your mobile cross platform needs");
+
+            compositeField.Bounds = footer.Bounds;
+
+            //Draw the composite field in footer.
+
+            compositeField.Draw(footer.Graphics, new PointF(0, 35));
+
+            pdf.DrawHorizontalLine(0, pdf.PageWidth, 0, 0.7f, pdf.AccentColor, footer.Graphics);
+
+            pdf.Document.Template.Bottom = footer;
         }
 
         private float GenerateHeader(GenerateInvoiceContext request, PdfGenerator pdf)
