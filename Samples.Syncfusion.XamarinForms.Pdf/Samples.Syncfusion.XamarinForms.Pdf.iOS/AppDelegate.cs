@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using Wibci.Xamarin.Forms.Converters;
 using Wibci.Xamarin.Images;
 using Wibci.Xamarin.Images.iOS;
 using Xamarin.Forms;
@@ -21,6 +22,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            var converter = new BooleanToInvertedBooleanConverter(); //seems assembly cannot be found if type not instantiated before app loads :|
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
