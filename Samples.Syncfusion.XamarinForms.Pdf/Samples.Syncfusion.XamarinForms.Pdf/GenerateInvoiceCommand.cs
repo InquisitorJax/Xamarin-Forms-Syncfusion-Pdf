@@ -1,7 +1,6 @@
 ﻿using Syncfusion.Drawing;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
-using Syncfusion.Pdf.Interactive;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,8 +52,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             RectangleF bounds = new RectangleF(0, 0, pdf.PageWidth, 50);
 
             PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
-
-            PdfTextWebLink textLink = new PdfTextWebLink();
 
             //BUG: NullReferenceException when trying to put a web link into the footer
             //pdf.DrawWebLink(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont, footer.Graphics);
