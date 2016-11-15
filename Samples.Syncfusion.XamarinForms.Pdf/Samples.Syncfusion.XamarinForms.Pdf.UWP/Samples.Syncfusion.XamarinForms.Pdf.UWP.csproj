@@ -100,7 +100,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UWPResizeImageCommand.cs" />
     <Compile Include="UWPSaveFileStreamCommand.cs" />
   </ItemGroup>
   <ItemGroup>

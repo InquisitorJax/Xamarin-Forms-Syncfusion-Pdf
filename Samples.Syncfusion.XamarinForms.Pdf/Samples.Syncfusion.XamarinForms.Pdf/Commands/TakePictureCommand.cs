@@ -17,12 +17,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
     {
     }
 
-    public class SelectPictureRequest
+    public class ChoosePictureRequest
     {
         public int? MaxPixelDimension { get; set; }
     }
 
-    public class SelectPictureResult : DeviceCommandResult
+    public class SelectPictureResult : TaskCommandResult
     {
         public byte[] Image { get; set; }
     }
@@ -31,7 +31,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
     {
         private IMedia MediaPicker
         {
-            //get { return DependencyService.Get<IMedia>(); }
             get { return CrossMedia.Current; }
         }
 
@@ -51,6 +50,11 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             StoreCameraMediaOptions options = new StoreCameraMediaOptions();
             options.Directory = "SyncfusionSamples";
             options.Name = DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
+            if (request.MaxPixelDimension.HasValue)
+            {
+                options.PhotoSize = PhotoSize.Custom;
+                options.CustomPhotoSize = request.MaxPixelDimension.Value;
+            }
 
             var mediaFile = await MediaPicker.TakePhotoAsync(options);
 
@@ -77,7 +81,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         }
     }
 
-    public class TakePictureRequest : SelectPictureRequest
+    public class TakePictureRequest : ChoosePictureRequest
     {
         public TakePictureRequest()
         {

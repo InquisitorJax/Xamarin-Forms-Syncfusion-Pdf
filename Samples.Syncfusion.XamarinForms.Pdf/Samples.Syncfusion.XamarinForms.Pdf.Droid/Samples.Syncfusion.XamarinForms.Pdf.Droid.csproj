@@ -86,8 +86,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
-    <Reference Include="Wibci.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.1\lib\Wibci.Core.dll</HintPath>
+    <Reference Include="Wibci.LogicCommand, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.2\lib\portable-net45+win8\Wibci.LogicCommand.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Forms.Converters, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -95,11 +95,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Images, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.2.0\lib\MonoAndroid\Wibci.Xamarin.Images.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.4.0\lib\MonoAndroid\Wibci.Xamarin.Images.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Images.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.2.0\lib\MonoAndroid\Wibci.Xamarin.Images.Droid.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.4.0\lib\MonoAndroid\Wibci.Xamarin.Images.Droid.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -152,7 +152,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AndroidResizeImageCommand.cs" />
     <Compile Include="AndroidSaveFileStreamCommand.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />

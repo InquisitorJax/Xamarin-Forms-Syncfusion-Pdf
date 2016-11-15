@@ -7,11 +7,11 @@ using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf.Droid
 {
-    public class AndroidSaveFileStreamCommand : AsyncLogicCommand<SaveFileStreamContext, DeviceCommandResult>, ISaveFileStreamCommand
+    public class AndroidSaveFileStreamCommand : AsyncLogicCommand<SaveFileStreamContext, TaskCommandResult>, ISaveFileStreamCommand
     {
-        public override Task<DeviceCommandResult> ExecuteAsync(SaveFileStreamContext request)
+        public override Task<TaskCommandResult> ExecuteAsync(SaveFileStreamContext request)
         {
-            var retResult = new DeviceCommandResult();
+            var retResult = new TaskCommandResult();
 
             string root = null;
 
@@ -65,7 +65,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.Droid
                 Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
             }
 
-            return Task.FromResult(new DeviceCommandResult());
+            return Task.FromResult(new TaskCommandResult());
 
             //for platform implementations, see https://help.syncfusion.com/file-formats/pdf/working-with-xamarin
         }

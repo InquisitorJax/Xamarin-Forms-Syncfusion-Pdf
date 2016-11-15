@@ -88,7 +88,6 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="iOSImageResizeCommand.cs" />
     <Compile Include="iOSSaveFileStreamCommand.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
@@ -141,8 +140,8 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Wibci.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.1\lib\Wibci.Core.dll</HintPath>
+    <Reference Include="Wibci.LogicCommand, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.2\lib\portable-net45+win8\Wibci.LogicCommand.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Forms.Converters, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -150,11 +149,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Images, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.3.0\lib\xamarinios\Wibci.Xamarin.Images.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.4.0\lib\xamarinios\Wibci.Xamarin.Images.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Images.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.3.0\lib\xamarinios\Wibci.Xamarin.Images.iOS.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.4.0\lib\xamarinios\Wibci.Xamarin.Images.iOS.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">

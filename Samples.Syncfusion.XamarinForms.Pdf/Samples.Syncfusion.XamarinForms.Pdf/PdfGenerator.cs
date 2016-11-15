@@ -3,9 +3,11 @@ using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Interactive;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Wibci.LogicCommand;
 using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
@@ -56,8 +58,16 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             {
                 using (MemoryStream imageStream = image.AsMemoryStream())
                 {
-                    PdfBitmap bitmap = new PdfBitmap(imageStream);
-                    CurrentPageGraphics.DrawImage(bitmap, new RectangleF(0, y, width, height));
+                    try
+                    {
+                        PdfBitmap bitmap = new PdfBitmap(imageStream);
+                        CurrentPageGraphics.DrawImage(bitmap, new RectangleF(0, y, width, height));
+                    }
+                    catch (PdfException pex)
+                    {
+                        Debug.WriteLine("ERROR!" + pex.Message);
+                        throw;
+                    }
                 }
             }
         }

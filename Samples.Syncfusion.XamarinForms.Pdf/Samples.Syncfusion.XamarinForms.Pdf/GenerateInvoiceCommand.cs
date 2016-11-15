@@ -12,7 +12,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
     {
     }
 
-    public class GenerateDefaultInvoiceResult : DeviceCommandResult
+    public class GenerateDefaultInvoiceResult : TaskCommandResult
     {
         public string FileName { get; set; }
         public byte[] PdfResult { get; set; }
@@ -167,8 +167,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         public Invoice Invoice { get; set; }
 
-        public int LogoHeight { get; set; }
-        public int LogoWidth { get; set; }
+        public uint LogoHeight { get; set; }
+        public uint LogoWidth { get; set; }
         public bool SimpleFormat { get; set; }
     }
 }

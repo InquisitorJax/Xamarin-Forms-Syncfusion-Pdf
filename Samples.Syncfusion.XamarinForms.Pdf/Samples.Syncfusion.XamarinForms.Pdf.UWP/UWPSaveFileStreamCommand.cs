@@ -6,9 +6,9 @@ using Windows.Storage;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf.UWP
 {
-    public class UWPSaveFileStreamCommand : AsyncLogicCommand<SaveFileStreamContext, DeviceCommandResult>, ISaveFileStreamCommand
+    public class UWPSaveFileStreamCommand : AsyncLogicCommand<SaveFileStreamContext, TaskCommandResult>, ISaveFileStreamCommand
     {
-        public override async Task<DeviceCommandResult> ExecuteAsync(SaveFileStreamContext request)
+        public override async Task<TaskCommandResult> ExecuteAsync(SaveFileStreamContext request)
         {
             StorageFolder local = ApplicationData.Current.LocalFolder;
 
@@ -20,7 +20,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.UWP
             catch (UnauthorizedAccessException)
             {
                 //existing file with same name is likely open
-                return new DeviceCommandResult { TaskResult = TaskResult.AccessDenied };
+                return new TaskCommandResult { TaskResult = TaskResult.AccessDenied };
             }
 
             using (Stream outStream = await outFile.OpenStreamForWriteAsync())
@@ -33,7 +33,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.UWP
                 await Windows.System.Launcher.LaunchFileAsync(outFile);
             }
 
-            return new DeviceCommandResult();
+            return new TaskCommandResult();
         }
     }
 }

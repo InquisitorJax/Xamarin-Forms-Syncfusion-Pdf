@@ -39,20 +39,19 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ByteArrayExtensions.cs" />
-    <Compile Include="DeviceCommandResult.cs" />
-    <Compile Include="ExpandingEditor.cs" />
+    <Compile Include="Commands\ChoosePictureCommand.cs" />
+    <Compile Include="Controls\ExpandingEditor.cs" />
     <Compile Include="GenerateInvoiceCommand.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="InvoiceItem.cs" />
-    <Compile Include="IResizeImageCommand.cs" />
-    <Compile Include="ISaveFileStreamCommand.cs" />
+    <Compile Include="Commands\ISaveFileStreamCommand.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPageViewModel.cs" />
     <Compile Include="PdfGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TakePictureCommand.cs" />
+    <Compile Include="Commands\TakePictureCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -89,8 +88,8 @@
       <HintPath>..\..\packages\Syncfusion.Xamarin.Pdf.14.3.0.52\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.Pdf.Portable.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wibci.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.1\lib\Wibci.Core.dll</HintPath>
+    <Reference Include="Wibci.LogicCommand, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Wibci.LogicCommand.1.0.2\lib\Wibci.LogicCommand.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Forms.Converters, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -98,7 +97,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Wibci.Xamarin.Images, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.2.0\lib\Wibci.Xamarin.Images.dll</HintPath>
+      <HintPath>..\..\packages\Wibci.Xamarin.Images.1.4.0\lib\Wibci.Xamarin.Images.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">

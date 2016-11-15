@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Plugin.Media;
 using Plugin.Permissions;
 using Wibci.Xamarin.Images;
 using Wibci.Xamarin.Images.Droid;
@@ -23,6 +24,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.Droid
 
             base.OnCreate(bundle);
 
+            Xamarin.Forms.DependencyService.Register<IAnalyseImageCommand, AndroidAnalyseImageCommand>();
+            CrossMedia.Current.Initialize();
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
 

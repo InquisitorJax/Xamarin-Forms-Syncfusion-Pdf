@@ -7,12 +7,12 @@ using Wibci.LogicCommand;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf.iOS
 {
-    public class iOSSaveFileStreamCommand : AsyncLogicCommand<SaveFileStreamContext, DeviceCommandResult>, ISaveFileStreamCommand
+    public class iOSSaveFileStreamCommand : AsyncLogicCommand<SaveFileStreamContext, TaskCommandResult>, ISaveFileStreamCommand
     {
-        public override Task<DeviceCommandResult> ExecuteAsync(SaveFileStreamContext request)
+        public override Task<TaskCommandResult> ExecuteAsync(SaveFileStreamContext request)
         {
             //from: https://help.syncfusion.com/file-formats/pdf/working-with-xamarin (broken??)
-            var retResult = new DeviceCommandResult();
+            var retResult = new TaskCommandResult();
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var stream = request.Stream;
 

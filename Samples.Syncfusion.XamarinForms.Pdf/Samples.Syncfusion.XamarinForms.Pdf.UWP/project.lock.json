@@ -2060,15 +2060,15 @@
           }
         }
       },
-      "Wibci.LogicCommand/1.0.1": {
+      "Wibci.LogicCommand/1.0.2": {
         "compile": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.2.0": {
+      "Wibci.Xamarin.Images/1.4.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -4255,15 +4255,15 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.1": {
+      "Wibci.LogicCommand/1.0.2": {
         "compile": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.2.0": {
+      "Wibci.Xamarin.Images/1.4.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -6489,15 +6489,15 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.1": {
+      "Wibci.LogicCommand/1.0.2": {
         "compile": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.2.0": {
+      "Wibci.Xamarin.Images/1.4.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -8693,15 +8693,15 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.1": {
+      "Wibci.LogicCommand/1.0.2": {
         "compile": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.2.0": {
+      "Wibci.Xamarin.Images/1.4.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -10936,15 +10936,15 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.1": {
+      "Wibci.LogicCommand/1.0.2": {
         "compile": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.2.0": {
+      "Wibci.Xamarin.Images/1.4.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -13140,15 +13140,15 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.1": {
+      "Wibci.LogicCommand/1.0.2": {
         "compile": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.2.0": {
+      "Wibci.Xamarin.Images/1.4.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -15383,15 +15383,15 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.1": {
+      "Wibci.LogicCommand/1.0.2": {
         "compile": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Wibci.Core.dll": {}
+          "lib/uap10.0/Wibci.LogicCommand.dll": {}
         }
       },
-      "Wibci.Xamarin.Images/1.2.0": {
+      "Wibci.Xamarin.Images/1.4.0": {
         "dependencies": {
           "Wibci.LogicCommand": "1.0.1"
         },
@@ -21657,31 +21657,32 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "Wibci.LogicCommand/1.0.1": {
-      "sha512": "8zRT0ihpE50d+afACmMoUhGUZ/NntTyaeOQ0khEQYfs6bi/ef9Q9MIkgwA8Cizd0HDjJKWrvOBL3hs7TsnlyAw==",
+    "Wibci.LogicCommand/1.0.2": {
+      "sha512": "ELuhWS89HlHDEB+9MJBmezGR6QFy7DsbG0ltwrn9ku4dSJWv8I7N5ZVfKFWucbbZvTLa5DfQLu/qe7EepmZgYQ==",
       "type": "package",
-      "path": "Wibci.LogicCommand/1.0.1",
+      "path": "Wibci.LogicCommand/1.0.2",
       "files": [
-        "Wibci.LogicCommand.1.0.1.nupkg.sha512",
+        "Wibci.LogicCommand.1.0.2.nupkg.sha512",
         "Wibci.LogicCommand.nuspec",
-        "lib/Wibci.Core.dll",
-        "lib/uap10.0/Wibci.Core.dll"
+        "lib/Wibci.LogicCommand.dll",
+        "lib/portable-net45+win8/Wibci.LogicCommand.dll",
+        "lib/uap10.0/Wibci.LogicCommand.dll"
       ]
     },
-    "Wibci.Xamarin.Images/1.2.0": {
-      "sha512": "H7GNQbVqcPu3v9MR4eNa97QUYMuKmg9TwPJVhFnxjKueOANSa8F9DSVLpb4cq4gt4wyURQbSxMkUtoFn2bnasA==",
+    "Wibci.Xamarin.Images/1.4.0": {
+      "sha512": "1AAJH9zlNBLiIRkEU3S3bg+JBArLCD+mZ1U+ZHLBO32kkoedRtu0JLRpRg853Ab71SmrAOB4dhZgFQgqEyRksg==",
       "type": "package",
-      "path": "Wibci.Xamarin.Images/1.2.0",
+      "path": "Wibci.Xamarin.Images/1.4.0",
       "files": [
-        "Wibci.Xamarin.Images.1.2.0.nupkg.sha512",
+        "Wibci.Xamarin.Images.1.4.0.nupkg.sha512",
         "Wibci.Xamarin.Images.nuspec",
         "lib/MonoAndroid/Wibci.Xamarin.Images.Droid.dll",
         "lib/MonoAndroid/Wibci.Xamarin.Images.dll",
-        "lib/MonoTouch/Wibci.Xamarin.Images.dll",
-        "lib/MonoTouch/Wibci.Xamarin.Images.iOS.dll",
         "lib/Wibci.Xamarin.Images.dll",
         "lib/uap10.0/Wibci.Xamarin.Images.UWP.dll",
-        "lib/uap10.0/Wibci.Xamarin.Images.dll"
+        "lib/uap10.0/Wibci.Xamarin.Images.dll",
+        "lib/xamarinios/Wibci.Xamarin.Images.dll",
+        "lib/xamarinios/Wibci.Xamarin.Images.iOS.dll"
       ]
     },
     "Wibcisoft.Xamarin.Forms.Converters/1.0.2": {
@@ -21967,8 +21968,8 @@
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
       "Prism.Core >= 6.2.0",
       "Syncfusion.Xamarin.Pdf >= 14.3.0.52",
-      "Wibci.LogicCommand >= 1.0.1",
-      "Wibci.Xamarin.Images >= 1.2.0",
+      "Wibci.LogicCommand >= 1.0.2",
+      "Wibci.Xamarin.Images >= 1.4.0",
       "Wibcisoft.Xamarin.Forms.Converters >= 1.0.2",
       "Xam.Plugin.Media >= 2.6.1",
       "Xamarin.Forms >= 2.3.2.127"

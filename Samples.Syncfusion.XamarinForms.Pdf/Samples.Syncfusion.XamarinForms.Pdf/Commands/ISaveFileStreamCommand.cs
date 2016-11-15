@@ -3,7 +3,7 @@ using Wibci.LogicCommand;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
 {
-    public interface ISaveFileStreamCommand : IAsyncLogicCommand<SaveFileStreamContext, DeviceCommandResult>
+    public interface ISaveFileStreamCommand : IAsyncLogicCommand<SaveFileStreamContext, TaskCommandResult>
     {
     }
 

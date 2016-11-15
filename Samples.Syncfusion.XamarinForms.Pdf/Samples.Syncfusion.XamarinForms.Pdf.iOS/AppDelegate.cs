@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Plugin.Media;
 using UIKit;
 using Wibci.Xamarin.Forms.Converters;
 using Wibci.Xamarin.Images;
@@ -24,6 +25,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.iOS
         {
             var converter = new BooleanToInvertedBooleanConverter(); //seems assembly cannot be found if type not instantiated before app loads :|
 
+            Xamarin.Forms.DependencyService.Register<IAnalyseImageCommand, iOSAnalyseImageCommand>();
+            CrossMedia.Current.Initialize();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

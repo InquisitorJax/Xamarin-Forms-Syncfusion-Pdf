@@ -9,6 +9,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             InitializeComponent();
 
             DependencyService.Register<ITakePictureCommand, TakePictureCommand>();
+            DependencyService.Register<IChoosePictureCommand, ChoosePictureCommand>();
             DependencyService.Register<IGenerateInvoiceCommand, GenerateInvoiceCommand>();
 
             MainPage = new NavigationPage(new MainPage());
