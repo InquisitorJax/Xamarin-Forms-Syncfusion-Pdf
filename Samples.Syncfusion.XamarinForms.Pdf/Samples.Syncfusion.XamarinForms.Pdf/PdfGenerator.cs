@@ -95,35 +95,29 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             y += 5;
             PdfLayoutResult result = AddText(leftText, 10, y, font, textBrush);
 
-            AddTextRight(rightText, 10, y, font, textBrush);
+            AddText(rightText, 10, y, font, textBrush, true);
 
             return result;
         }
 
-        public PdfLayoutResult AddText(string text, float x, float y, PdfFont font = null, PdfBrush brush = null)
+        public PdfLayoutResult AddText(string text, float x, float y, PdfFont font = null, PdfBrush brush = null, bool xIsRightOffset = false, float? forceTextSize = null)
         {
             font = font ?? NormalFont;
             brush = brush ?? AccentBrush;
+
+            if (xIsRightOffset)
+            {
+                SizeF textSize = font.MeasureString(text);
+                float textWidth = forceTextSize ?? textSize.Width;
+                x = PageWidth - textWidth - x;
+            }
+
             PdfTextElement element = new PdfTextElement(text, font, brush);
             PdfLayoutResult result = element.Draw(CurrentPage, new PointF(x, y));
             return result;
         }
 
-        public PdfLayoutResult AddTextRight(string text, float xOffset, float y, PdfFont font = null, PdfBrush brush = null)
-        {
-            font = font ?? NormalFont;
-            brush = brush ?? AccentBrush;
-
-            SizeF textSize = font.MeasureString(text);
-            PointF position = new PointF(PageWidth - textSize.Width - xOffset, y);
-
-            PdfTextElement element = new PdfTextElement(text, font, brush);
-            PdfLayoutResult result = element.Draw(CurrentPage, new PointF(PageWidth - textSize.Width - xOffset, y));
-            //CurrentPageGraphics.DrawString(text, font, brush, position);
-            return result;
-        }
-
-        public PdfLayoutResult AddWebLink(float x, float y, string webLink, string linkText, PdfFont font = null)
+        public PdfLayoutResult AddWebLink(string webLink, float x, float y, string linkText, PdfFont font = null, bool xIsRightOffset = false, float? forceTextSize = null)
         {
             font = font ?? NormalFont;
 
@@ -131,6 +125,14 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             textLink.Url = webLink;
             textLink.Text = linkText;
             textLink.Font = font;
+
+            if (xIsRightOffset)
+            {
+                SizeF textSize = font.MeasureString(webLink);
+                float textWidth = forceTextSize ?? textSize.Width;
+                x = PageWidth - textWidth - x;
+            }
+
             var result = textLink.DrawTextWebLink(CurrentPage, new PointF(x, y));
             return result;
         }
@@ -153,6 +155,16 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             CurrentPageGraphics.DrawRectangle(brush, bounds);
         }
 
+        public void DrawText(string text, float x, float y, PdfFont font = null, PdfBrush brush = null, PdfGraphics graphics = null)
+        {
+            font = font ?? NormalFont;
+            brush = brush ?? AccentBrush;
+            graphics = graphics ?? CurrentPageGraphics;
+
+            PdfTextElement element = new PdfTextElement(text, font, brush);
+            element.Draw(graphics, new PointF(x, y));
+        }
+
         public void DrawWebLink(float x, float y, string webLink, string linkText, PdfFont font = null, PdfGraphics graphics = null)
         {
             font = font ?? NormalFont;
@@ -163,6 +175,27 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             textLink.Text = linkText;
             textLink.Font = font;
             textLink.DrawTextWebLink(graphics, new PointF(x, y));
+        }
+
+        public void DrawWebLinkPageBottom(float x, float yOffset, string webLink, string linkText, PdfFont font = null)
+        {
+            font = font ?? NormalFont;
+
+            float y = CurrentPage.Graphics.ClientSize.Height - yOffset;
+
+            PdfTextWebLink textLink = new PdfTextWebLink();
+            textLink.Url = webLink;
+            textLink.Text = linkText;
+            textLink.Font = font;
+            textLink.DrawTextWebLink(CurrentPageGraphics, new PointF(x, y));
+        }
+
+        public float LongestText(string[] text, PdfFont font = null)
+        {
+            font = font ?? NormalFont;
+            float longest = text.Max(x => font.MeasureString(x).Width);
+
+            return longest;
         }
 
         public async Task<TaskResult> SaveAsync(string fileName, bool launchFile = true)

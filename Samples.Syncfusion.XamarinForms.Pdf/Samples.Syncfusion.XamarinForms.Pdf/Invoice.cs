@@ -20,6 +20,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         private byte[] _logo;
         private int _number;
 
+        private string _terms;
         private int _vatPercentage;
 
         public Invoice()
@@ -105,6 +106,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             set { SetProperty(ref _number, value); }
         }
 
+        public string Terms
+        {
+            get { return _terms; }
+            set { SetProperty(ref _terms, value); }
+        }
+
         public int VatPercentage
         {
             get { return _vatPercentage; }
@@ -113,6 +120,9 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         public void GenDefault()
         {
+            string email = "sales@syncfusion.com";
+            string phone = "1-888-9DOTNET (Toll Free)";
+
             Heading = "Something to be done";
             Description = $"Please do something with the tasl{Environment.NewLine}Line2: Something more.... {Environment.NewLine}Line 3: and then something more";
 
@@ -126,7 +136,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             BusinessName = "Z's Alien Hunters For Hire";
 
-            BusinessInfo = $"Vat#: 456789{Environment.NewLine}{Environment.NewLine}13 Pragmatic Drive{Environment.NewLine}Coin Business Park{Environment.NewLine}Bellville{Environment.NewLine}7550{Environment.NewLine}{Environment.NewLine}Customer Support (555) 555-76343";
+            BusinessInfo = $"Vat#: 456789{Environment.NewLine}{Environment.NewLine}" +
+                           $"13 Pragmatic Drive{Environment.NewLine}Coin Business Park{Environment.NewLine}Bellville{Environment.NewLine}7550{Environment.NewLine}{Environment.NewLine}" +
+                           $"Customer Support{Environment.NewLine}{phone}{Environment.NewLine}{email}";
+
+            Terms = "Thanks for using our services :)" + Environment.NewLine +
+                    $"Payments made to:  {BusinessName}{Environment.NewLine}Bank of Sokovia{Environment.NewLine}Account # 12345{Environment.NewLine}Branch Code: 54531" +
+                    $"{Environment.NewLine}Terms of payment are to be settled within 30 days of invoice";
 
             double total = 0;
             for (int i = 1; i <= 10; i++)

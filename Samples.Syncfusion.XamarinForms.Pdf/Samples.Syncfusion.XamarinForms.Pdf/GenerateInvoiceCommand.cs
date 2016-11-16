@@ -27,7 +27,10 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             //https://help.syncfusion.com/file-formats/pdf/getting-started
             PdfGenerator pdf = new PdfGenerator();
             pdf.Setup("Invoice");
-            float y = GenerateHeader(request, pdf);
+
+            //GenerateHeader(request, pdf);
+
+            float y = GenerateBodyHeader(request, pdf);
 
             if (request.SimpleFormat)
             {
@@ -38,6 +41,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 y = GenerateItemizedBody(request, pdf, y);
             }
 
+            y = GenerateTermsBody(request, pdf, y);
+
             GenerateFooter(request, pdf);
             //Save the document.
             await pdf.SaveAsync(request.FileName);
@@ -45,31 +50,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             return retResult;
         }
 
-        private void GenerateFooter(GenerateInvoiceContext request, PdfGenerator pdf)
-        {
-            //https://help.syncfusion.com/file-formats/pdf/working-with-headers-and-footers
-
-            RectangleF bounds = new RectangleF(0, 0, pdf.PageWidth, 50);
-
-            PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
-
-            //BUG: NullReferenceException when trying to put a web link into the footer
-            //pdf.DrawWebLink(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont, footer.Graphics);
-
-            PdfCompositeField compositeField = new PdfCompositeField(pdf.NormalFont, pdf.AccentBrush, "Awesome control library for your mobile cross platform needs");
-
-            compositeField.Bounds = footer.Bounds;
-
-            //Draw the composite field in footer.
-
-            compositeField.Draw(footer.Graphics, new PointF(0, 35));
-
-            pdf.DrawHorizontalLine(0, pdf.PageWidth, 0, 0.7f, pdf.AccentColor, footer.Graphics);
-
-            pdf.Document.Template.Bottom = footer;
-        }
-
-        private float GenerateHeader(GenerateInvoiceContext request, PdfGenerator pdf)
+        private float GenerateBodyHeader(GenerateInvoiceContext request, PdfGenerator pdf)
         {
             PdfLayoutResult result = null;
             float y = 10;
@@ -77,20 +58,41 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             pdf.AddImage(request.Invoice.Logo, 0, y, request.LogoWidth, request.LogoHeight);
 
             var font = pdf.NormalFontBold;
-            result = pdf.AddText(request.Invoice.BusinessName, request.LogoWidth + 10, y, font);
-            result = pdf.AddText(request.Invoice.BusinessInfo, request.LogoWidth + 10, result.Bounds.Bottom + 2);
+            float x = request.LogoWidth > 0 ? request.LogoWidth + 10 : 0;
+            result = pdf.AddText(request.Invoice.BusinessName, x, y, font);
+            result = pdf.AddText(request.Invoice.BusinessInfo, x, result.Bounds.Bottom + 2);
             float businessY = result.Bounds.Bottom + 10;
 
-            string customer = request.Invoice.Customer + Environment.NewLine + request.Invoice.Address;
-            result = pdf.AddTextRight(customer, 0, y, font);
-            float addressX = result.Bounds.Left;
+            string twitterLink = "http://twitter.com/syncfusion";
+            string webLink = "https://www.syncfusion.com/";
+            string facebook = "https://www.facebook.com/Syncfusion";
+            string youtube = "https://www.youtube.com/syncfusioninc";
+            string linkedIn = "https://www.linkedin.com/company/syncfusion?trk=top_nav_home";
+            string instagram = "http://www.instagram.com";
 
-            float addressY = result.Bounds.Bottom + 10;
+            string[] socialLinks = new string[] { "twitter", "website", "facebook", "youtube", "linkedIn", "instagram" };
+
+            //left align all the social links
+            float xOffsetTextSize = pdf.LongestText(socialLinks);
+
+            result = pdf.AddWebLink(webLink, 0, y, "website", null, true, xOffsetTextSize);
+            result = pdf.AddWebLink(facebook, 0, result.Bounds.Bottom, "facebook", null, true, xOffsetTextSize);
+            result = pdf.AddWebLink(twitterLink, 0, result.Bounds.Bottom, "twitter", null, true, xOffsetTextSize);
+            result = pdf.AddWebLink(youtube, 0, result.Bounds.Bottom, "youtube", null, true, xOffsetTextSize);
+            result = pdf.AddWebLink(linkedIn, 0, result.Bounds.Bottom, "linkedin", null, true, xOffsetTextSize);
+            result = pdf.AddWebLink(instagram, 0, result.Bounds.Bottom, "instagram", null, true, xOffsetTextSize);
+
+            float socialLinksY = result.Bounds.Bottom + 10;
             float imageY = request.LogoHeight + 15;
 
-            float actualY = Enumerable.Max(new float[] { businessY, addressY, imageY });
+            float actualY = Enumerable.Max(new float[] { businessY, socialLinksY, imageY });
+            y = actualY;
 
-            y += actualY;
+            string customer = request.Invoice.Customer + Environment.NewLine + request.Invoice.Address;
+            result = pdf.AddText(customer, 0, y, font);
+
+            y = result.Bounds.Bottom + 10;
+
             string leftText = "INVOICE #" + request.Invoice.Number.ToString();
             string rightText = DateTime.Now.ToString("dd MMM yyyy");
             result = pdf.AddRectangleText(leftText, rightText, y, 30);
@@ -108,6 +110,42 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             y += 1;
 
             return y;
+        }
+
+        private void GenerateFooter(GenerateInvoiceContext request, PdfGenerator pdf)
+        {
+            //https://help.syncfusion.com/file-formats/pdf/working-with-headers-and-footers
+
+            RectangleF bounds = new RectangleF(0, 0, pdf.PageWidth, 50);
+
+            PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
+
+            //BUG: NullReferenceException when trying to put a web link into the footer - drawing web links using footer graphics not supported yet by syncfusion
+            //pdf.DrawWebLink(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont, footer.Graphics);
+            pdf.DrawWebLinkPageBottom(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont);
+
+            PdfCompositeField compositeField = new PdfCompositeField(pdf.NormalFont, pdf.AccentBrush, "http://www.syncfusion.com");
+            compositeField.Bounds = footer.Bounds;
+
+            //Draw the composite field in footer.
+
+            compositeField.Draw(footer.Graphics, new PointF(0, 35));
+
+            //BUG: Doesn't generate in the footer bounds - gets rendered on the page graphics instead
+            pdf.DrawHorizontalLine(0, pdf.PageWidth, 0, 0.7f, pdf.AccentColor, footer.Graphics);
+
+            pdf.Document.Template.Bottom = footer;
+        }
+
+        private void GenerateHeader(GenerateInvoiceContext request, PdfGenerator pdf)
+        {
+            RectangleF bounds = new RectangleF(0, 0, pdf.PageWidth, 50);
+
+            PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
+
+            pdf.DrawText("Header Text", 10, 0, pdf.NormalFont, pdf.AccentBrush, header.Graphics);
+
+            pdf.Document.Template.Top = header;
         }
 
         private float GenerateItemizedBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
@@ -133,6 +171,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             return y;
         }
 
+        private float GenerateTermsBody(GenerateInvoiceContext request, PdfGenerator pdf, float y)
+        {
+            PdfLayoutResult result = pdf.AddText(request.Invoice.Terms, 10, y, pdf.NormalFontBold);
+            y = result.Bounds.Bottom;
+            return y;
+        }
+
         private float GenerateTotal(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
         {
             float y = currentY;
@@ -147,8 +192,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             PdfLayoutResult result = pdf.AddRectangleText(leftText, rightText, y, 30, PdfBrushes.White, pdf.AccentBrush, pdf.NormalFontBold);
             y = result.Bounds.Bottom;
 
-            leftText = "VAT";
-            rightText = request.Invoice.VatPercentage + "%";
+            leftText = "VAT" + request.Invoice.VatPercentage + "%";
+            rightText = request.Invoice.Currency + " " + vatAmount.ToString();
             result = pdf.AddRectangleText(leftText, rightText, y, 30, PdfBrushes.White, pdf.AccentBrush, pdf.NormalFontBold);
             y = result.Bounds.Bottom;
 
@@ -156,6 +201,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             leftText = "Total Due";
             rightText = request.Invoice.Currency + " " + total.ToString();
             result = pdf.AddRectangleText(leftText, rightText, y, 30);
+
+            y = result.Bounds.Bottom + 10;
 
             return y;
         }
