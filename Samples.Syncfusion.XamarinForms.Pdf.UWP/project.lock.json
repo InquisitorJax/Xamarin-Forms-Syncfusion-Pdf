@@ -272,7 +272,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "compile": {
           "lib/wpa81/Prism.dll": {}
         },
@@ -304,7 +304,10 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/14.3.0.52": {
+      "Syncfusion.Xamarin.Compression/15.2.0.43": {
+        "dependencies": {
+          "Xamarin.Forms": "2.3.3.180"
+        },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -312,9 +315,10 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/14.3.0.52": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "14.3.0.52"
+          "Syncfusion.Xamarin.Compression": "15.2.0.43",
+          "Xamarin.Forms": "2.3.3.180"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -2060,7 +2064,7 @@
           }
         }
       },
-      "Wibci.LogicCommand/1.0.2": {
+      "Wibci.LogicCommand/1.1.0": {
         "compile": {
           "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
@@ -2092,7 +2096,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.1": {
+      "Xam.Plugin.Media/2.6.2": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -2102,7 +2106,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.2.127": {
+      "Xamarin.Forms/2.3.4.247": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -2335,7 +2339,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "compile": {
           "lib/wpa81/Prism.dll": {}
         },
@@ -2647,7 +2651,10 @@
           "runtimes/win8-arm/native/clrcompression.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/14.3.0.52": {
+      "Syncfusion.Xamarin.Compression/15.2.0.43": {
+        "dependencies": {
+          "Xamarin.Forms": "2.3.3.180"
+        },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -2655,9 +2662,10 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/14.3.0.52": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "14.3.0.52"
+          "Syncfusion.Xamarin.Compression": "15.2.0.43",
+          "Xamarin.Forms": "2.3.3.180"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -4255,7 +4263,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.2": {
+      "Wibci.LogicCommand/1.1.0": {
         "compile": {
           "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
@@ -4287,7 +4295,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.1": {
+      "Xam.Plugin.Media/2.6.2": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -4297,7 +4305,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.2.127": {
+      "Xamarin.Forms/2.3.4.247": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -4531,7 +4539,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "compile": {
           "lib/wpa81/Prism.dll": {}
         },
@@ -4881,7 +4889,10 @@
           "runtimes/win8-arm-aot/native/_._": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/14.3.0.52": {
+      "Syncfusion.Xamarin.Compression/15.2.0.43": {
+        "dependencies": {
+          "Xamarin.Forms": "2.3.3.180"
+        },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -4889,9 +4900,10 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/14.3.0.52": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "14.3.0.52"
+          "Syncfusion.Xamarin.Compression": "15.2.0.43",
+          "Xamarin.Forms": "2.3.3.180"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -6489,7 +6501,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.2": {
+      "Wibci.LogicCommand/1.1.0": {
         "compile": {
           "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
@@ -6521,7 +6533,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.1": {
+      "Xam.Plugin.Media/2.6.2": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -6531,7 +6543,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.2.127": {
+      "Xamarin.Forms/2.3.4.247": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -6768,7 +6780,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "compile": {
           "lib/wpa81/Prism.dll": {}
         },
@@ -7085,7 +7097,10 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/14.3.0.52": {
+      "Syncfusion.Xamarin.Compression/15.2.0.43": {
+        "dependencies": {
+          "Xamarin.Forms": "2.3.3.180"
+        },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -7093,9 +7108,10 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/14.3.0.52": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "14.3.0.52"
+          "Syncfusion.Xamarin.Compression": "15.2.0.43",
+          "Xamarin.Forms": "2.3.3.180"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -8693,7 +8709,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.2": {
+      "Wibci.LogicCommand/1.1.0": {
         "compile": {
           "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
@@ -8725,7 +8741,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.1": {
+      "Xam.Plugin.Media/2.6.2": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -8735,7 +8751,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.2.127": {
+      "Xamarin.Forms/2.3.4.247": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -8973,7 +8989,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "compile": {
           "lib/wpa81/Prism.dll": {}
         },
@@ -9328,7 +9344,10 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/14.3.0.52": {
+      "Syncfusion.Xamarin.Compression/15.2.0.43": {
+        "dependencies": {
+          "Xamarin.Forms": "2.3.3.180"
+        },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -9336,9 +9355,10 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/14.3.0.52": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "14.3.0.52"
+          "Syncfusion.Xamarin.Compression": "15.2.0.43",
+          "Xamarin.Forms": "2.3.3.180"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -10936,7 +10956,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.2": {
+      "Wibci.LogicCommand/1.1.0": {
         "compile": {
           "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
@@ -10968,7 +10988,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.1": {
+      "Xam.Plugin.Media/2.6.2": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -10978,7 +10998,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.2.127": {
+      "Xamarin.Forms/2.3.4.247": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -11215,7 +11235,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "compile": {
           "lib/wpa81/Prism.dll": {}
         },
@@ -11532,7 +11552,10 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/14.3.0.52": {
+      "Syncfusion.Xamarin.Compression/15.2.0.43": {
+        "dependencies": {
+          "Xamarin.Forms": "2.3.3.180"
+        },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -11540,9 +11563,10 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/14.3.0.52": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "14.3.0.52"
+          "Syncfusion.Xamarin.Compression": "15.2.0.43",
+          "Xamarin.Forms": "2.3.3.180"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -13140,7 +13164,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.2": {
+      "Wibci.LogicCommand/1.1.0": {
         "compile": {
           "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
@@ -13172,7 +13196,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.1": {
+      "Xam.Plugin.Media/2.6.2": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -13182,7 +13206,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.2.127": {
+      "Xamarin.Forms/2.3.4.247": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -13420,7 +13444,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "compile": {
           "lib/wpa81/Prism.dll": {}
         },
@@ -13775,7 +13799,10 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/14.3.0.52": {
+      "Syncfusion.Xamarin.Compression/15.2.0.43": {
+        "dependencies": {
+          "Xamarin.Forms": "2.3.3.180"
+        },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -13783,9 +13810,10 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/14.3.0.52": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "14.3.0.52"
+          "Syncfusion.Xamarin.Compression": "15.2.0.43",
+          "Xamarin.Forms": "2.3.3.180"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -15383,7 +15411,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Wibci.LogicCommand/1.0.2": {
+      "Wibci.LogicCommand/1.1.0": {
         "compile": {
           "lib/uap10.0/Wibci.LogicCommand.dll": {}
         },
@@ -15415,7 +15443,7 @@
           "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.6.1": {
+      "Xam.Plugin.Media/2.6.2": {
         "compile": {
           "lib/UAP10/Plugin.Media.Abstractions.dll": {},
           "lib/UAP10/Plugin.Media.dll": {}
@@ -15425,7 +15453,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.2.127": {
+      "Xamarin.Forms/2.3.4.247": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -15744,13 +15772,11 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Prism.Core/6.2.0": {
-      "sha512": "jWJRmjvR/bJqVyLr3T9hKToyV6X0Q2DONtyfa8ZjHJwlkD/SF3YJM+z8xSdqQl8uPfLOmgBG6Xm4lPk69P5o0g==",
+    "Prism.Core/6.3.0": {
+      "sha512": "8KKRF/1Hx76dXFrYb3XUbkGFWTZjjI99DTGcPt5/aGghb3iYBscxiT4WDVlGmUpfqw7QS/jDI2BGs5ZsAy8XVA==",
       "type": "package",
-      "path": "Prism.Core/6.2.0",
+      "path": "Prism.Core/6.3.0",
       "files": [
-        "Prism.Core.6.2.0.nupkg.sha512",
-        "Prism.Core.nuspec",
         "lib/MonoAndroid10/Prism.dll",
         "lib/MonoAndroid10/Prism.xml",
         "lib/MonoTouch10/Prism.dll",
@@ -15766,7 +15792,9 @@
         "lib/wp81/Prism.dll",
         "lib/wp81/Prism.xml",
         "lib/wpa81/Prism.dll",
-        "lib/wpa81/Prism.xml"
+        "lib/wpa81/Prism.xml",
+        "prism.core.6.3.0.nupkg.sha512",
+        "prism.core.nuspec"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {
@@ -16731,23 +16759,23 @@
         "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
-    "Syncfusion.Xamarin.Compression/14.3.0.52": {
-      "sha512": "n73iVKEjxhjW3wIEDabyQHdgrb0OCoYvqUKuggPVVTRML9VVonR7tzURnUTkghpCkRWVIkf5Qoa+q+iPsicV6A==",
+    "Syncfusion.Xamarin.Compression/15.2.0.43": {
+      "sha512": "TR+uwjFDNkG+yLEEehdLV2YOvhvaps1e9JKDddoQioBxGey7irQM2RLYpPFxI3Uz4xQ50xyLYDfQnazQrkgz6A==",
       "type": "package",
-      "path": "Syncfusion.Xamarin.Compression/14.3.0.52",
+      "path": "Syncfusion.Xamarin.Compression/15.2.0.43",
       "files": [
-        "Syncfusion.Xamarin.Compression.14.3.0.52.nupkg.sha512",
+        "Syncfusion.Xamarin.Compression.15.2.0.43.nupkg.sha512",
         "Syncfusion.Xamarin.Compression.nuspec",
         "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll",
         "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.xml"
       ]
     },
-    "Syncfusion.Xamarin.Pdf/14.3.0.52": {
-      "sha512": "YvD6VbPGdXlCdwrX6bAQJzoz7REEvFHplSldCigMLm0gkgFhkhkwkJOH+ApNyuDyolOpNt6we7u2rUeebl0sSg==",
+    "Syncfusion.Xamarin.Pdf/15.2.0.43": {
+      "sha512": "B7iwFrQbboEsF8XtD4ohLbVaEHIeMVWP3slTPGZYEauyKNK3mCBnNusD7oMlAgW2zlBveRdvXCY5Kmcl/7szKA==",
       "type": "package",
-      "path": "Syncfusion.Xamarin.Pdf/14.3.0.52",
+      "path": "Syncfusion.Xamarin.Pdf/15.2.0.43",
       "files": [
-        "Syncfusion.Xamarin.Pdf.14.3.0.52.nupkg.sha512",
+        "Syncfusion.Xamarin.Pdf.15.2.0.43.nupkg.sha512",
         "Syncfusion.Xamarin.Pdf.nuspec",
         "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll",
         "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.xml",
@@ -21657,12 +21685,12 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "Wibci.LogicCommand/1.0.2": {
-      "sha512": "ELuhWS89HlHDEB+9MJBmezGR6QFy7DsbG0ltwrn9ku4dSJWv8I7N5ZVfKFWucbbZvTLa5DfQLu/qe7EepmZgYQ==",
+    "Wibci.LogicCommand/1.1.0": {
+      "sha512": "o1DTs327fg8A1+QCl6FfVdr8tuPgdaXzlJxaMVBf8IEHYxylsW/95rF0qlzVHzygQ6schlIsnVdGK9uhJ1AJ3g==",
       "type": "package",
-      "path": "Wibci.LogicCommand/1.0.2",
+      "path": "Wibci.LogicCommand/1.1.0",
       "files": [
-        "Wibci.LogicCommand.1.0.2.nupkg.sha512",
+        "Wibci.LogicCommand.1.1.0.nupkg.sha512",
         "Wibci.LogicCommand.nuspec",
         "lib/Wibci.LogicCommand.dll",
         "lib/portable-net45+win8/Wibci.LogicCommand.dll",
@@ -21697,13 +21725,11 @@
         "lib/uap10.0/Wibci.Xamarin.Forms.Converters.dll"
       ]
     },
-    "Xam.Plugin.Media/2.6.1": {
-      "sha512": "gtwAgBKHjMM7D1QPKiZuVCwxCMj2bxTJU1K9d2YwnnTt/q0xokqziUEvKDHPDvCLHkryE4TfhS0iAdYv6QrFzA==",
+    "Xam.Plugin.Media/2.6.2": {
+      "sha512": "WN5n0205WfjS1zUsLoyfKT4nkTlUtFSvpJ0GvuQ4v3A7AJeXLASAQOB7iND8aVLFI/fg7qHZ6qxzLroAhJaa7g==",
       "type": "package",
-      "path": "Xam.Plugin.Media/2.6.1",
+      "path": "Xam.Plugin.Media/2.6.2",
       "files": [
-        "Xam.Plugin.Media.2.6.1.nupkg.sha512",
-        "Xam.Plugin.Media.nuspec",
         "lib/MonoAndroid10/Plugin.Media.Abstractions.dll",
         "lib/MonoAndroid10/Plugin.Media.Abstractions.pdb",
         "lib/MonoAndroid10/Plugin.Media.Abstractions.xml",
@@ -21754,29 +21780,26 @@
         "lib/wpa81/Plugin.Media/CameraCaptureUIPage.xaml",
         "lib/wpa81/Plugin.Media/CameraCaptureUIPage.xbf",
         "lib/wpa81/Plugin.Media/Plugin.Media.xr.xml",
-        "readme.txt"
+        "readme.txt",
+        "xam.plugin.media.2.6.2.nupkg.sha512",
+        "xam.plugin.media.nuspec"
       ]
     },
-    "Xamarin.Forms/2.3.2.127": {
-      "sha512": "NYH2p6Z2QGrRZpRXSiLqtapqlsx11pkViEIjDUQFDvsMCZbvsipDXOWjV9sXTrruXTdkNZ24Nsw0lEG0jVRMjA==",
+    "Xamarin.Forms/2.3.4.247": {
+      "sha512": "+6VN8IBSah7EcNJ4SV3pIhNA8tNlBaPLfr3+hQpPIllueJrXI5QtjM0tAJusPc2V1cYyC4YKvA1fs5c/A8RrBw==",
       "type": "package",
-      "path": "Xamarin.Forms/2.3.2.127",
+      "path": "Xamarin.Forms/2.3.4.247",
       "files": [
-        "Xamarin.Forms.2.3.2.127.nupkg.sha512",
+        "Xamarin.Forms.2.3.4.247.nupkg.sha512",
         "Xamarin.Forms.nuspec",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.Decompiler.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.NRefactory.CSharp.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.NRefactory.Cecil.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.NRefactory.Xml.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.NRefactory.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Mono.Cecil.Mdb.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Mono.Cecil.Pdb.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Mono.Cecil.Rocks.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Mono.Cecil.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Build.Tasks.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Core.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
-        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.targets",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Mdb.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Pdb.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Rocks.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Build.Tasks.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets",
         "lib/MonoAndroid10/Design/Xamarin.Forms.Core.Design.dll",
         "lib/MonoAndroid10/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/MonoAndroid10/FormsViewGroup.dll",
@@ -21790,52 +21813,6 @@
         "lib/MonoAndroid10/Xamarin.Forms.Xaml.dll",
         "lib/MonoAndroid10/Xamarin.Forms.Xaml.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Xaml.xml",
-        "lib/MonoTouch10/Design/Xamarin.Forms.Core.Design.dll",
-        "lib/MonoTouch10/Design/Xamarin.Forms.Xaml.Design.dll",
-        "lib/MonoTouch10/Xamarin.Forms.Core.dll",
-        "lib/MonoTouch10/Xamarin.Forms.Core.dll.mdb",
-        "lib/MonoTouch10/Xamarin.Forms.Core.pdb",
-        "lib/MonoTouch10/Xamarin.Forms.Core.xml",
-        "lib/MonoTouch10/Xamarin.Forms.Platform.dll",
-        "lib/MonoTouch10/Xamarin.Forms.Platform.iOS.Classic.dll",
-        "lib/MonoTouch10/Xamarin.Forms.Xaml.dll",
-        "lib/MonoTouch10/Xamarin.Forms.Xaml.dll.mdb",
-        "lib/MonoTouch10/Xamarin.Forms.Xaml.pdb",
-        "lib/MonoTouch10/Xamarin.Forms.Xaml.xml",
-        "lib/MonoTouch10/ar/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/ca/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/cs/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/da/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/de/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/el/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/es/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/fi/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/fr/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/he/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/hi/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/hr/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/hu/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/id/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/it/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/ja/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/ko/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/ms/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/nb/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/nl/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/pl/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/pt-BR/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/pt/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/ro/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/ru/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/sk/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/sv/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/th/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/tr/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/uk/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/vi/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/zh-HK/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/zh-Hans/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
-        "lib/MonoTouch10/zh-Hant/Xamarin.Forms.Platform.iOS.Classic.resources.dll",
         "lib/WP80/Design/Xamarin.Forms.Core.Design.dll",
         "lib/WP80/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/WP80/Xamarin.Forms.Core.dll",
@@ -21895,19 +21872,19 @@
         "lib/Xamarin.iOS10/zh-HK/Xamarin.Forms.Platform.iOS.resources.dll",
         "lib/Xamarin.iOS10/zh-Hans/Xamarin.Forms.Platform.iOS.resources.dll",
         "lib/Xamarin.iOS10/zh-Hant/Xamarin.Forms.Platform.iOS.resources.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Design/Xamarin.Forms.Core.Design.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Design/Xamarin.Forms.Xaml.Design.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Core.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Core.dll.mdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Core.pdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Core.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Platform.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Platform.dll.mdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Platform.pdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Xaml.dll.mdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Xaml.pdb",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Xaml.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Design/Xamarin.Forms.Core.Design.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Design/Xamarin.Forms.Xaml.Design.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.dll.mdb",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.dll.mdb",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.dll.mdb",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.xml",
         "lib/uap10.0/Design/Xamarin.Forms.Core.Design.dll",
         "lib/uap10.0/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/uap10.0/Xamarin.Forms.Core.dll",
@@ -21915,10 +21892,14 @@
         "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP.pri",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/AutoSuggestStyle.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/FormsCommandBarStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/FormsTextBoxStyle.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/MasterDetailControlStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/PageControl.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/PageControlStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Properties/Xamarin.Forms.Platform.UAP.rd.xml",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Resources.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/TabbedPageStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Xamarin.Forms.Platform.UAP.xr.xml",
         "lib/uap10.0/Xamarin.Forms.Platform.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.dll",
@@ -21966,13 +21947,13 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
-      "Prism.Core >= 6.2.0",
-      "Syncfusion.Xamarin.Pdf >= 14.3.0.52",
-      "Wibci.LogicCommand >= 1.0.2",
+      "Prism.Core >= 6.3.0",
+      "Syncfusion.Xamarin.Pdf >= 15.2.0.43",
+      "Wibci.LogicCommand >= 1.1.0",
       "Wibci.Xamarin.Images >= 1.4.0",
       "Wibcisoft.Xamarin.Forms.Converters >= 1.0.2",
-      "Xam.Plugin.Media >= 2.6.1",
-      "Xamarin.Forms >= 2.3.2.127"
+      "Xam.Plugin.Media >= 2.6.2",
+      "Xamarin.Forms >= 2.3.4.247"
     ],
     "UAP,Version=v10.0": []
   }

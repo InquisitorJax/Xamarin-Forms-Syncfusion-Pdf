@@ -43,6 +43,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             y = GenerateTermsBody(request, pdf, y);
 
+            y = GenerateSignature(request, pdf, y);
+
             GenerateFooter(request, pdf);
             //Save the document.
             await pdf.SaveAsync(request.FileName);
@@ -158,6 +160,21 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             return y;
         }
 
+        private float GenerateSignature(GenerateInvoiceContext request, PdfGenerator pdf, float y)
+        {
+            y += 55; //gap to place signature
+
+            pdf.DrawHorizontalLine(15, 85, y, 0.7f, pdf.AccentColor);
+            pdf.DrawHorizontalLine(85, 15, y, 0.7f, pdf.AccentColor, null, true);
+
+            y += 2;
+            var result = pdf.AddText("customer", 15, y);
+            result = pdf.AddText("business", 15, y, null, null, true);
+            y = result.Bounds.Bottom;
+
+            return y;
+        }
+
         private float GenerateSimpleBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
         {
             float y = currentY;
@@ -205,6 +222,11 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             y = result.Bounds.Bottom + 10;
 
             return y;
+        }
+
+        private void Pages_PageAdded(object sender, PageAddedEventArgs args)
+        {
+            throw new NotImplementedException();
         }
     }
 

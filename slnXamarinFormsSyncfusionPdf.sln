@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Syncfusion.XamarinForms.Pdf", "Samples.Syncfusion.XamarinForms.Pdf\Samples.Syncfusion.XamarinForms.Pdf\Samples.Syncfusion.XamarinForms.Pdf.csproj", "{49DD28AB-F358-4B64-9C99-2DE21A94D766}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Syncfusion.XamarinForms.Pdf", "Samples.Syncfusion.XamarinForms.Pdf\Samples.Syncfusion.XamarinForms.Pdf.csproj", "{49DD28AB-F358-4B64-9C99-2DE21A94D766}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Syncfusion.XamarinForms.Pdf.Droid", "Samples.Syncfusion.XamarinForms.Pdf\Samples.Syncfusion.XamarinForms.Pdf.Droid\Samples.Syncfusion.XamarinForms.Pdf.Droid.csproj", "{B989BDB2-86B8-47AE-8536-8892DCAB0C1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Syncfusion.XamarinForms.Pdf.Droid", "Samples.Syncfusion.XamarinForms.Pdf.Droid\Samples.Syncfusion.XamarinForms.Pdf.Droid.csproj", "{B989BDB2-86B8-47AE-8536-8892DCAB0C1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Syncfusion.XamarinForms.Pdf.iOS", "Samples.Syncfusion.XamarinForms.Pdf\Samples.Syncfusion.XamarinForms.Pdf.iOS\Samples.Syncfusion.XamarinForms.Pdf.iOS.csproj", "{A45CCAED-0A8D-4AF6-A166-98AE4760383F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Syncfusion.XamarinForms.Pdf.iOS", "Samples.Syncfusion.XamarinForms.Pdf.iOS\Samples.Syncfusion.XamarinForms.Pdf.iOS.csproj", "{A45CCAED-0A8D-4AF6-A166-98AE4760383F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Syncfusion.XamarinForms.Pdf.UWP", "Samples.Syncfusion.XamarinForms.Pdf\Samples.Syncfusion.XamarinForms.Pdf.UWP\Samples.Syncfusion.XamarinForms.Pdf.UWP.csproj", "{0250E175-11AB-4F49-AB87-29A8A94FFEE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Syncfusion.XamarinForms.Pdf.UWP", "Samples.Syncfusion.XamarinForms.Pdf.UWP\Samples.Syncfusion.XamarinForms.Pdf.UWP.csproj", "{0250E175-11AB-4F49-AB87-29A8A94FFEE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -137,10 +137,17 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             return result;
         }
 
-        public void DrawHorizontalLine(float xStart, float xEnd, float y, float lineWidth, PdfColor color, PdfGraphics graphics = null)
+        public void DrawHorizontalLine(float xStart, float xEnd, float y, float lineWidth, PdfColor color, PdfGraphics graphics = null, bool xIsRightOffset = false)
         {
             graphics = graphics ?? CurrentPageGraphics;
             PdfPen linePen = new PdfPen(color, lineWidth);
+
+            if (xIsRightOffset)
+            {
+                xStart = PageWidth - xStart;
+                xEnd = PageWidth - xEnd;
+            }
+
             PointF startPoint = new PointF(xStart, y);
             PointF endPoint = new PointF(xEnd, y);
             //Draws a line at the bottom of the address

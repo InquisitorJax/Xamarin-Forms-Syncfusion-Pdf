@@ -1,13 +1,13 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "Prism.Core": "6.2.0",
-    "Syncfusion.Xamarin.Pdf": "14.3.0.52",
-    "Wibci.LogicCommand": "1.0.2",
+    "Prism.Core": "6.3.0",
+    "Syncfusion.Xamarin.Pdf": "15.2.0.43",
+    "Wibci.LogicCommand": "1.1.0",
     "Wibci.Xamarin.Images": "1.4.0",
     "Wibcisoft.Xamarin.Forms.Converters": "1.0.2",
-    "Xam.Plugin.Media": "2.6.1",
-    "Xamarin.Forms": "2.3.2.127"
+    "Xam.Plugin.Media": "2.6.2",
+    "Xamarin.Forms": "2.3.4.247"
   },
   "frameworks": {
     "uap10.0": {}
