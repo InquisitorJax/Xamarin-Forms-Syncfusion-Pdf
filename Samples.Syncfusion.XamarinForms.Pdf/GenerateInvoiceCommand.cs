@@ -33,24 +33,45 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             float y = GenerateBodyHeader(request, pdf);
 
-            if (request.SimpleFormat)
-            {
-                y = GenerateSimpleBody(request, pdf, y);
-            }
-            else
-            {
-                y = GenerateItemizedBodyWithLightTable(request, pdf, y);
-            }
-
-            y = GenerateTermsBody(request, pdf, y);
+            y = GenerateBody(request, pdf, y, !request.SimpleFormat);
 
             y = GenerateSignature(request, pdf, y);
+
+            y += 10;
+
+            y = GenerateTermsBody(request, pdf, y);
 
             GenerateFooter(request, pdf);
             //Save the document.
             await pdf.SaveAsync(request.FileName);
 
             return retResult;
+        }
+
+        private float GenerateBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY, bool generateItems)
+        {
+            float y = currentY;
+
+            y += 10;
+            PdfLayoutResult result = pdf.AddText(request.Invoice.Description, 10, y);
+
+            y = result.Bounds.Bottom;
+
+            if (generateItems)
+            {
+                if (request.SimpleTableItems)
+                {
+                    y = GenerateItemizedBodyWithLightTable(request, pdf, y);
+                }
+                else
+                {
+                    y = GenerateItemizedBodyWithGrid(request, pdf, y);
+                }
+            }
+
+            y = GenerateTotal(request, pdf, y);
+
+            return y;
         }
 
         private float GenerateBodyHeader(GenerateInvoiceContext request, PdfGenerator pdf)
@@ -151,6 +172,11 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             pdf.Document.Template.Top = header;
         }
 
+        private float GenerateItemizedBodyWithGrid(GenerateInvoiceContext request, PdfGenerator pdf, float y)
+        {
+            throw new NotImplementedException();
+        }
+
         private float GenerateItemizedBodyWithLightTable(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
         {
             float y = currentY;
@@ -168,7 +194,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount, item.Quantity, item.Amount });
             }
 
-            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(0, y));
+            PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
+
+            layoutFormat.Break = PdfLayoutBreakType.FitPage;
+            layoutFormat.Layout = PdfLayoutType.Paginate;
+
+            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(0, y), layoutFormat);
 
             y = result.Bounds.Bottom;
 
@@ -186,19 +217,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             var result = pdf.AddText("customer", 15, y);
             result = pdf.AddText("business", 15, y, null, null, true);
             y = result.Bounds.Bottom;
-
-            return y;
-        }
-
-        private float GenerateSimpleBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
-        {
-            float y = currentY;
-
-            y += 10;
-            PdfLayoutResult result = pdf.AddText(request.Invoice.Description, 10, y);
-
-            y = result.Bounds.Bottom;
-            y = GenerateTotal(request, pdf, y);
 
             return y;
         }
