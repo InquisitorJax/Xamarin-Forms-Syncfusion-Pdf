@@ -61,7 +61,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 LogoHeight = _logoHeight,
                 LogoWidth = _logoWidth,
                 SimpleFormat = false, //simple format doesn't generate line items for each invoice item
-                SimpleTableItems = true //when SimpleFormat = false - choose what kind of table to use to generate the items
+                SimpleTableItems = true //when SimpleFormat = false - choose what kind of table to use to generate the items !simple = use pdfGrid, else use SimpleTable
             };
 
             var result = await generateCommand.ExecuteAsync(context);

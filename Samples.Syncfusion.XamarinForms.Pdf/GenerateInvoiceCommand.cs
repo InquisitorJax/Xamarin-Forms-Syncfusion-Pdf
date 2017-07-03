@@ -1,6 +1,7 @@
 ﻿using Syncfusion.Drawing;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
 using Syncfusion.Pdf.Tables;
 using System;
 using System.Linq;
@@ -174,7 +175,45 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         private float GenerateItemizedBodyWithGrid(GenerateInvoiceContext request, PdfGenerator pdf, float y)
         {
-            throw new NotImplementedException();
+            //Create a new PdfGrid.
+
+            PdfGrid pdfGrid = new PdfGrid();
+
+            //Add four columns.
+
+            pdfGrid.Columns.Add(4);
+
+            //Add header.
+
+            pdfGrid.Headers.Add(1);
+
+            PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
+
+            pdfGridHeader.Cells[0].Value = "Title";
+            pdfGridHeader.Cells[1].Value = "Cost";
+            pdfGridHeader.Cells[2].Value = "Qty";
+            pdfGridHeader.Cells[3].Value = "Total";
+
+            //Add rows.
+            foreach (var item in request.Invoice.Items)
+            {
+                PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
+
+                //NOTE: It seems that values MUST be string values
+
+                pdfGridRow.Cells[0].Value = item.Name;
+                pdfGridRow.Cells[1].Value = item.ItemAmount.ToString("n2");
+                pdfGridRow.Cells[2].Value = item.Quantity.ToString("n0");
+                pdfGridRow.Cells[3].Value = item.Amount.ToString("n2");
+            }
+
+            //Apply built-in table style
+            pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
+
+            //Draw the PdfGrid.
+            var result = pdfGrid.Draw(pdf.CurrentPage, new PointF(10, y));
+
+            return result.Bounds.Bottom;
         }
 
         private float GenerateItemizedBodyWithLightTable(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
@@ -199,7 +238,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             layoutFormat.Break = PdfLayoutBreakType.FitPage;
             layoutFormat.Layout = PdfLayoutType.Paginate;
 
-            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(0, y), layoutFormat);
+            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(10, y), layoutFormat);
 
             y = result.Bounds.Bottom;
 
