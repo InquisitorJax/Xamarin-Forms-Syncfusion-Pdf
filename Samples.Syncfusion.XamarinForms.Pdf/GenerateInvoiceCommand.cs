@@ -1,6 +1,7 @@
 ﻿using Syncfusion.Drawing;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Tables;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,7 +39,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             }
             else
             {
-                y = GenerateItemizedBody(request, pdf, y);
+                y = GenerateItemizedBodyWithLightTable(request, pdf, y);
             }
 
             y = GenerateTermsBody(request, pdf, y);
@@ -150,12 +151,26 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             pdf.Document.Template.Top = header;
         }
 
-        private float GenerateItemizedBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
+        private float GenerateItemizedBodyWithLightTable(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
         {
             float y = currentY;
 
-            y += 10;
-            PdfLayoutResult result = pdf.AddText(request.Invoice.Description, 10, y);
+            PdfLightTable pdfLightTable = new PdfLightTable();
+
+            //Add columns to the DataTable
+            pdfLightTable.Columns.Add(new PdfColumn("Title"));
+            pdfLightTable.Columns.Add(new PdfColumn("Cost"));
+            pdfLightTable.Columns.Add(new PdfColumn("Qty"));
+            pdfLightTable.Columns.Add(new PdfColumn("Total"));
+
+            foreach (var item in request.Invoice.Items)
+            {
+                pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount, item.Quantity, item.Amount });
+            }
+
+            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(0, y));
+
+            y = result.Bounds.Bottom;
 
             return y;
         }
@@ -223,11 +238,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             return y;
         }
-
-        private void Pages_PageAdded(object sender, PageAddedEventArgs args)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class GenerateInvoiceContext
@@ -239,5 +249,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         public uint LogoHeight { get; set; }
         public uint LogoWidth { get; set; }
         public bool SimpleFormat { get; set; }
+
+        public bool SimpleTableItems { get; set; }
     }
 }

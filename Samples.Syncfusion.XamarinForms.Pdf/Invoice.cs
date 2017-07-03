@@ -118,7 +118,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             set { SetProperty(ref _vatPercentage, value); }
         }
 
-        public void GenDefault()
+        public void GenDefault(int numberOfItems)
         {
             string email = "sales@syncfusion.com";
             string phone = "1-888-9DOTNET (Toll Free)";
@@ -144,15 +144,23 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                     $"Payments made to:  {BusinessName}{Environment.NewLine}Bank of Sokovia{Environment.NewLine}Account # 12345{Environment.NewLine}Branch Code: 54531" +
                     $"{Environment.NewLine}Terms of payment are to be settled within 30 days of invoice";
 
+            GenerateItems(numberOfItems);
+
+            Currency = "R";
+        }
+
+        public void GenerateItems(int numberOfItems)
+        {
             double total = 0;
-            for (int i = 1; i <= 10; i++)
+            Items.Clear();
+
+            for (int i = 1; i <= numberOfItems; i++)
             {
-                var item = new InvoiceItem { Quantity = i, ItemAmount = 33.2, Name = "Item number " + i };
+                var item = new InvoiceItem { Quantity = i, ItemAmount = i * 17.23, Name = "Item number " + i };
                 Items.Add(item);
                 total += item.Amount;
             }
 
-            Currency = "R";
             Amount = total;
         }
     }
