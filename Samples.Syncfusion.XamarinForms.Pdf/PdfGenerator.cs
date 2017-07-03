@@ -217,6 +217,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             }
 
             //Close the document.
+            Document.Pages.PageAdded -= Pages_PageAdded;
             Document.Close(true);
 
             return result;
@@ -226,6 +227,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             //Create a new PDF document.
             Document = new PdfDocument();
+            Document.Pages.PageAdded += Pages_PageAdded;
             //Add a page to the document.
             AddPage(firstPageName);
 
@@ -235,6 +237,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             PdfFontStyle style = PdfFontStyle.Bold;
             NormalFontBold = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, style);
             SubHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 18);
+        }
+
+        private void Pages_PageAdded(object sender, PageAddedEventArgs args)
+        {
+            Debug.WriteLine("Page added!");
+            //when document grows with new page, make sure current page is always the latest page added
+            CurrentPage = args.Page;
         }
     }
 }

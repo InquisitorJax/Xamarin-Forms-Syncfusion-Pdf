@@ -147,7 +147,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             //BUG: NullReferenceException when trying to put a web link into the footer - drawing web links using footer graphics not supported yet by syncfusion
             //pdf.DrawWebLink(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont, footer.Graphics);
-            pdf.DrawWebLinkPageBottom(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont);
+            //pdf.DrawWebLinkPageBottom(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont);
 
             PdfCompositeField compositeField = new PdfCompositeField(pdf.NormalFont, pdf.AccentBrush, "http://www.syncfusion.com");
             compositeField.Bounds = footer.Bounds;
@@ -175,6 +175,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         private float GenerateItemizedBodyWithGrid(GenerateInvoiceContext request, PdfGenerator pdf, float y)
         {
+            y += 10;
             //Create a new PdfGrid.
 
             PdfGrid pdfGrid = new PdfGrid();
@@ -183,13 +184,34 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             pdfGrid.Columns.Add(4);
 
+            pdfGrid.Columns[1].Width = 80; //TODO: Auto + Stretch
+            pdfGrid.Columns[1].Format = new PdfStringFormat
+            {
+                Alignment = PdfTextAlignment.Center,
+                LineAlignment = PdfVerticalAlignment.Middle
+            };
+
+            pdfGrid.Columns[2].Width = 40; //TODO: Auto + Stretch
+            pdfGrid.Columns[2].Format = new PdfStringFormat
+            {
+                Alignment = PdfTextAlignment.Center,
+                LineAlignment = PdfVerticalAlignment.Middle
+            };
+
+            pdfGrid.Columns[3].Width = 80; //TODO: Auto + Stretch
+            pdfGrid.Columns[3].Format = new PdfStringFormat
+            {
+                Alignment = PdfTextAlignment.Center,
+                LineAlignment = PdfVerticalAlignment.Middle
+            };
+
             //Add header.
 
             pdfGrid.Headers.Add(1);
 
             PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
 
-            pdfGridHeader.Cells[0].Value = "Title";
+            pdfGridHeader.Cells[0].Value = "Item";
             pdfGridHeader.Cells[1].Value = "Cost";
             pdfGridHeader.Cells[2].Value = "Qty";
             pdfGridHeader.Cells[3].Value = "Total";
@@ -208,10 +230,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             }
 
             //Apply built-in table style
-            pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
+            pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent2);
+            PdfGridLayoutFormat format = new PdfGridLayoutFormat();
+            format.Layout = PdfLayoutType.Paginate;
 
             //Draw the PdfGrid.
-            var result = pdfGrid.Draw(pdf.CurrentPage, new PointF(10, y));
+            var result = pdfGrid.Draw(pdf.CurrentPage, new PointF(10, y), format);
 
             return result.Bounds.Bottom;
         }

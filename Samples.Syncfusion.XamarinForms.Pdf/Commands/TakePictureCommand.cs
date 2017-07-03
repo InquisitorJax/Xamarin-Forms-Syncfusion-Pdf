@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Wibci.LogicCommand;
+using Wibci.Xamarin.Images;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
 {
@@ -50,24 +51,33 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             StoreCameraMediaOptions options = new StoreCameraMediaOptions();
             options.Directory = "SyncfusionSamples";
             options.Name = DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
-            if (request.MaxPixelDimension.HasValue)
-            {
-                options.PhotoSize = PhotoSize.Custom;
-                options.CustomPhotoSize = request.MaxPixelDimension.Value;
-            }
 
             var mediaFile = await MediaPicker.TakePhotoAsync(options);
 
             if (mediaFile != null)
             {
+                byte[] image = null;
                 using (mediaFile)
                 {
                     using (MemoryStream ms = new MemoryStream())
                     {
                         mediaFile.GetStream().CopyTo(ms);
-                        retResult.Image = ms.ToArray();
+                        image = ms.ToArray();
                     }
                 }
+
+                if (request.MaxPixelDimension.HasValue)
+                {
+                    IResizeImageCommand resizeCommand = Xamarin.Forms.DependencyService.Get<IResizeImageCommand>();
+                    ResizeImageContext context = new ResizeImageContext { Height = request.MaxPixelDimension.Value, Width = request.MaxPixelDimension.Value, OriginalImage = image };
+                    var resizeResult = await resizeCommand.ExecuteAsync(context);
+                    if (resizeResult.IsValid())
+                    {
+                        image = resizeResult.ResizedImage;
+                    }
+                }
+
+                retResult.Image = image;
 
                 retResult.TaskResult = TaskResult.Success;
             }

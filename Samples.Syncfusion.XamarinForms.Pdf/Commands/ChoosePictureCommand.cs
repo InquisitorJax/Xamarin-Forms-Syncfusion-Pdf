@@ -3,6 +3,7 @@ using Plugin.Media.Abstractions;
 using System.IO;
 using System.Threading.Tasks;
 using Wibci.LogicCommand;
+using Wibci.Xamarin.Images;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
 {
@@ -32,21 +33,31 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             }
 
             var options = new PickMediaOptions();
-            if (request.MaxPixelDimension.HasValue)
-            {
-                options.PhotoSize = PhotoSize.Custom;
-                options.CustomPhotoSize = request.MaxPixelDimension.Value;
-            }
+            options.CompressionQuality = 100;
 
             var mediaFile = await MediaPicker.PickPhotoAsync(options);
 
             if (mediaFile != null)
             {
+                byte[] image = null;
                 using (MemoryStream ms = new MemoryStream())
                 {
                     mediaFile.GetStream().CopyTo(ms);
-                    retResult.Image = ms.ToArray();
+                    image = ms.ToArray();
                 }
+
+                if (request.MaxPixelDimension.HasValue)
+                {
+                    IResizeImageCommand resizeCommand = Xamarin.Forms.DependencyService.Get<IResizeImageCommand>();
+                    ResizeImageContext context = new ResizeImageContext { Height = request.MaxPixelDimension.Value, Width = request.MaxPixelDimension.Value, OriginalImage = image };
+                    var resizeResult = await resizeCommand.ExecuteAsync(context);
+                    if (resizeResult.IsValid())
+                    {
+                        image = resizeResult.ResizedImage;
+                    }
+                }
+
+                retResult.Image = image;
 
                 retResult.TaskResult = TaskResult.Success;
             }
