@@ -151,7 +151,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             PointF startPoint = new PointF(xStart, y);
             PointF endPoint = new PointF(xEnd, y);
             //Draws a line at the bottom of the address
-            CurrentPageGraphics.DrawLine(linePen, startPoint, endPoint);
+            graphics.DrawLine(linePen, startPoint, endPoint);
         }
 
         public void DrawRectangle(float x, float y, float width, float height, PdfBrush brush = null)

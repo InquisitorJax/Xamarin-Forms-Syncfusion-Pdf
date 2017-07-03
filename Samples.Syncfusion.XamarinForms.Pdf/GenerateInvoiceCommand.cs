@@ -22,6 +22,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
     public class GenerateInvoiceCommand : AsyncLogicCommand<GenerateInvoiceContext, GenerateDefaultInvoiceResult>, IGenerateInvoiceCommand
     {
+        private const float FOOTER_HEIGHT = 20;
+
         public override async Task<GenerateDefaultInvoiceResult> ExecuteAsync(GenerateInvoiceContext request)
         {
             GenerateDefaultInvoiceResult retResult = new GenerateDefaultInvoiceResult();
@@ -141,7 +143,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             //https://help.syncfusion.com/file-formats/pdf/working-with-headers-and-footers
 
-            RectangleF bounds = new RectangleF(0, 0, pdf.PageWidth, 50);
+            RectangleF bounds = new RectangleF(0, 0, pdf.PageWidth, FOOTER_HEIGHT);
 
             PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
 
@@ -154,9 +156,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             //Draw the composite field in footer.
 
-            compositeField.Draw(footer.Graphics, new PointF(0, 35));
+            compositeField.Draw(footer.Graphics, new PointF(0, 0));
 
-            //BUG: Doesn't generate in the footer bounds - gets rendered on the page graphics instead
             pdf.DrawHorizontalLine(0, pdf.PageWidth, 0, 0.7f, pdf.AccentColor, footer.Graphics);
 
             pdf.Document.Template.Bottom = footer;
@@ -233,6 +234,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent2);
             PdfGridLayoutFormat format = new PdfGridLayoutFormat();
             format.Layout = PdfLayoutType.Paginate;
+            format.PaginateBounds = new RectangleF(0, 0, pdf.CurrentPage.Graphics.ClientSize.Width, pdf.CurrentPage.Graphics.ClientSize.Height - FOOTER_HEIGHT);
 
             //Draw the PdfGrid.
             var result = pdfGrid.Draw(pdf.CurrentPage, new PointF(10, y), format);
