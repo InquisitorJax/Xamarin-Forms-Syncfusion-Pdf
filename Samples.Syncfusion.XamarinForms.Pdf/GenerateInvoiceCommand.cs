@@ -248,6 +248,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             PdfLightTable pdfLightTable = new PdfLightTable();
 
+            pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
             //Add columns to the DataTable
             pdfLightTable.Columns.Add(new PdfColumn("Title"));
             pdfLightTable.Columns.Add(new PdfColumn("Cost"));
@@ -256,7 +258,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             foreach (var item in request.Invoice.Items)
             {
-                pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount, item.Quantity, item.Amount });
+                pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount.ToString(), item.Quantity.ToString(), item.Amount.ToString() });
             }
 
             PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
