@@ -246,27 +246,55 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             float y = currentY;
 
-            PdfLightTable pdfLightTable = new PdfLightTable();
+            //TODO: BUG: Doesn't render
 
+            #region Original Code
+
+            //PdfLightTable pdfLightTable = new PdfLightTable();
+
+            //pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+            ////Add columns to the DataTable
+            //pdfLightTable.Columns.Add(new PdfColumn("Title"));
+            //pdfLightTable.Columns.Add(new PdfColumn("Cost"));
+            //pdfLightTable.Columns.Add(new PdfColumn("Qty"));
+            //pdfLightTable.Columns.Add(new PdfColumn("Total"));
+
+            //foreach (var item in request.Invoice.Items)
+            //{
+            //    pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount.ToString(), item.Quantity.ToString(), item.Amount.ToString() });
+            //}
+
+            //PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
+
+            //layoutFormat.Break = PdfLayoutBreakType.FitPage;
+            //layoutFormat.Layout = PdfLayoutType.Paginate;
+
+            //var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(10, y), layoutFormat);
+
+            #endregion Original Code
+
+            #region Syncfusion code
+
+            PdfLightTable pdfLightTable = new PdfLightTable();
+            //Set the Data source as direct.
             pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
 
-            //Add columns to the DataTable
-            pdfLightTable.Columns.Add(new PdfColumn("Title"));
-            pdfLightTable.Columns.Add(new PdfColumn("Cost"));
-            pdfLightTable.Columns.Add(new PdfColumn("Qty"));
-            pdfLightTable.Columns.Add(new PdfColumn("Total"));
+            //Create columns.
+            pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+            pdfLightTable.Columns.Add(new PdfColumn("Name"));
+            pdfLightTable.Columns.Add(new PdfColumn("Class"));
 
-            foreach (var item in request.Invoice.Items)
+            //Add rows.
+            for (int i = 0; i < 5; i++)
             {
-                pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount.ToString(), item.Quantity.ToString(), item.Amount.ToString() });
+                pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
             }
 
-            PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
+            //Draw the PdfLightTable.
+            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(0, y));
 
-            layoutFormat.Break = PdfLayoutBreakType.FitPage;
-            layoutFormat.Layout = PdfLayoutType.Paginate;
-
-            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(10, y), layoutFormat);
+            #endregion Syncfusion code
 
             y = result.Bounds.Bottom;
 
