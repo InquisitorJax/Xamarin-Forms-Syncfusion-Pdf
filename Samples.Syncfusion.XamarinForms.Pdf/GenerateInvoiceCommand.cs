@@ -151,7 +151,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             //pdf.DrawWebLink(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont, footer.Graphics);
             //pdf.DrawWebLinkPageBottom(0, 35, "http://www.syncfusion.com", "Awesome control library for your mobile cross platform needs", pdf.NormalFont);
 
-            PdfCompositeField compositeField = new PdfCompositeField(pdf.NormalFont, pdf.AccentBrush, "http://www.syncfusion.com");
+            PdfCompositeField compositeField = new PdfCompositeField(pdf.NormalFont, pdf.AccentBrush, "http://www.syncfusion.com Awesome control library for your mobile cross platform needs");
             compositeField.Bounds = footer.Bounds;
 
             //Draw the composite field in footer.
@@ -231,7 +231,17 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             }
 
             //Apply built-in table style
+            //NOTE: that the accent2 color of #FFED7D31 is used in generating the total rectangle as well
             pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent2);
+
+            //Apply Custom Style
+            //pdfGrid.Style = new PdfGridStyle
+            //{
+            //    //BackgroundBrush = pdf.AccentBrush,
+            //    TextBrush = pdf.AccentBrush,
+            //    //TextPen = new PdfPen(pdf.AccentBrush)
+            //};
+
             PdfGridLayoutFormat format = new PdfGridLayoutFormat();
             format.Layout = PdfLayoutType.Paginate;
             format.PaginateBounds = new RectangleF(0, 0, pdf.CurrentPage.Graphics.ClientSize.Width, pdf.CurrentPage.Graphics.ClientSize.Height - FOOTER_HEIGHT);
@@ -244,57 +254,36 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         private float GenerateItemizedBodyWithLightTable(GenerateInvoiceContext request, PdfGenerator pdf, float currentY)
         {
-            float y = currentY;
-
-            //TODO: BUG: Doesn't render
+            float y = currentY + 10;
 
             #region Original Code
 
-            //PdfLightTable pdfLightTable = new PdfLightTable();
-
-            //pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
-
-            ////Add columns to the DataTable
-            //pdfLightTable.Columns.Add(new PdfColumn("Title"));
-            //pdfLightTable.Columns.Add(new PdfColumn("Cost"));
-            //pdfLightTable.Columns.Add(new PdfColumn("Qty"));
-            //pdfLightTable.Columns.Add(new PdfColumn("Total"));
-
-            //foreach (var item in request.Invoice.Items)
-            //{
-            //    pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount.ToString(), item.Quantity.ToString(), item.Amount.ToString() });
-            //}
-
-            //PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
-
-            //layoutFormat.Break = PdfLayoutBreakType.FitPage;
-            //layoutFormat.Layout = PdfLayoutType.Paginate;
-
-            //var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(10, y), layoutFormat);
-
-            #endregion Original Code
-
-            #region Syncfusion code
-
             PdfLightTable pdfLightTable = new PdfLightTable();
-            //Set the Data source as direct.
+
+            pdfLightTable.Style = pdf.GenerateLightTableStyle(pdf.PdfGridStyle2Color, pdf.AccentColor, pdf.PdfGridStyle2AltColor, new PdfColor(Color.White));
+
             pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
 
-            //Create columns.
-            pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
-            pdfLightTable.Columns.Add(new PdfColumn("Name"));
-            pdfLightTable.Columns.Add(new PdfColumn("Class"));
+            //Add columns to the DataTable
+            pdfLightTable.Columns.Add(new PdfColumn("Title"));
+            pdfLightTable.Columns.Add(new PdfColumn("Cost"));
+            pdfLightTable.Columns.Add(new PdfColumn("Qty"));
+            pdfLightTable.Columns.Add(new PdfColumn("Total"));
 
-            //Add rows.
-            for (int i = 0; i < 5; i++)
+            foreach (var item in request.Invoice.Items)
             {
-                pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+                pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount.ToString("n2"), item.Quantity.ToString(), item.Amount.ToString("n2") });
             }
 
-            //Draw the PdfLightTable.
-            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(0, y));
+            PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
 
-            #endregion Syncfusion code
+            layoutFormat.Break = PdfLayoutBreakType.FitPage;
+            layoutFormat.Layout = PdfLayoutType.Paginate;
+            layoutFormat.PaginateBounds = new RectangleF(0, 0, pdf.CurrentPage.Graphics.ClientSize.Width, pdf.CurrentPage.Graphics.ClientSize.Height - FOOTER_HEIGHT);
+
+            var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(10, y), layoutFormat);
+
+            #endregion Original Code
 
             y = result.Bounds.Bottom;
 
@@ -345,7 +334,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             y += 5;
             leftText = "Total Due";
             rightText = request.Invoice.Currency + " " + total.ToString();
-            result = pdf.AddRectangleText(leftText, rightText, y, 30);
+            result = pdf.AddRectangleText(leftText, rightText, y, 30, pdf.PdfGridStyle2Brush);
 
             y = result.Bounds.Bottom + 10;
 

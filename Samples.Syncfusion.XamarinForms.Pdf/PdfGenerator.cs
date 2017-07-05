@@ -2,6 +2,7 @@
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Interactive;
+using Syncfusion.Pdf.Tables;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -23,6 +24,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         public PdfBrush AccentBrush { get; set; }
         public PdfColor AccentColor { get; set; }
+
         public PdfPage CurrentPage { get; set; }
 
         public string CurrentPageName
@@ -45,6 +47,9 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             get { return CurrentPageGraphics.ClientSize.Width; }
         }
 
+        public PdfColor PdfGridStyle2AltColor { get; set; }
+        public PdfBrush PdfGridStyle2Brush { get; set; }
+        public PdfColor PdfGridStyle2Color { get; set; }
         public PdfFont SubHeadingFont { get; set; }
 
         private PdfGraphics CurrentPageGraphics
@@ -197,6 +202,36 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             textLink.DrawTextWebLink(CurrentPageGraphics, new PointF(x, y));
         }
 
+        public PdfLightTableStyle GenerateLightTableStyle(PdfColor borderColor, PdfColor textColor, PdfColor altBackgroundColor, PdfColor altTextColor)
+        {
+            var retStyle = new PdfLightTableStyle
+            {
+                BorderPen = new PdfPen(borderColor),
+                DefaultStyle = new PdfCellStyle
+                {
+                    TextBrush = new PdfSolidBrush(textColor),
+                    BorderPen = new PdfPen(borderColor)
+                },
+                AlternateStyle = new PdfCellStyle
+                {
+                    TextBrush = new PdfSolidBrush(textColor),
+                    BackgroundBrush = new PdfSolidBrush(altBackgroundColor),
+                    BorderPen = new PdfPen(borderColor)
+                },
+                ShowHeader = true,
+                RepeatHeader = true,
+                HeaderSource = PdfHeaderSource.ColumnCaptions,
+                HeaderStyle = new PdfCellStyle
+                {
+                    BorderPen = new PdfPen(borderColor),
+                    BackgroundBrush = new PdfSolidBrush(borderColor),
+                    TextBrush = new PdfSolidBrush(altTextColor)
+                }
+            };
+
+            return retStyle;
+        }
+
         public float LongestText(string[] text, PdfFont font = null)
         {
             font = font ?? NormalFont;
@@ -231,8 +266,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             //Add a page to the document.
             AddPage(firstPageName);
 
-            AccentColor = new PdfColor(126, 151, 173);
+            AccentColor = new PdfColor(89, 106, 122);
             AccentBrush = new PdfSolidBrush(AccentColor);
+            PdfGridStyle2Color = new PdfColor(237, 125, 49);
+            PdfGridStyle2AltColor = new PdfColor(251, 228, 213);
+            PdfGridStyle2Brush = new PdfSolidBrush(PdfGridStyle2Color);
+
             NormalFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
             PdfFontStyle style = PdfFontStyle.Bold;
             NormalFontBold = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, style);

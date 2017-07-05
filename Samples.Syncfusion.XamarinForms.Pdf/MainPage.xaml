@@ -42,6 +42,12 @@
                 <Entry Keyboard="Numeric"
                        Placeholder="number of invoice items"
                        Text="{Binding NumberOfInvoiceItems}" />
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Use PdfLightTable" />
+                    <Switch IsToggled="{Binding UseSimpleTable}" />
+                </StackLayout>
+                <Label Text="When true, will use PdfLightTable, else use PdfGrid to generate line items" />
             </StackLayout>
             <Button Grid.Row="1"
                     Command="{Binding GenerateInvoiceCommand}"

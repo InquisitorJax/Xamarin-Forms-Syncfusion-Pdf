@@ -17,13 +17,16 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         private int _numberOfInvoiceItems;
         private bool _useCamera;
 
+        private bool _useSimpleTable;
+
         public MainPageViewModel()
         {
             Model = new Invoice();
-            NumberOfInvoiceItems = 10;
+            NumberOfInvoiceItems = 30;
             Model.GenDefault(NumberOfInvoiceItems);
             GenerateInvoiceCommand = new DelegateCommand(GenerateInvoice);
             SelectPictureCommand = new DelegateCommand(SelectPicture);
+            UseSimpleTable = true;
         }
 
         public ICommand GenerateInvoiceCommand { get; }
@@ -48,6 +51,12 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             set { SetProperty(ref _useCamera, value); }
         }
 
+        public bool UseSimpleTable
+        {
+            get { return _useSimpleTable; }
+            set { SetProperty(ref _useSimpleTable, value); }
+        }
+
         private async void GenerateInvoice()
         {
             var generateCommand = DependencyService.Get<IGenerateInvoiceCommand>();
@@ -61,7 +70,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 LogoHeight = _logoHeight,
                 LogoWidth = _logoWidth,
                 SimpleFormat = false, //simple format doesn't generate line items for each invoice item
-                SimpleTableItems = true //when SimpleFormat = false - choose what kind of table to use to generate the items !simple = use pdfGrid, else use SimpleTable
+                SimpleTableItems = UseSimpleTable //when SimpleFormat = false - choose what kind of table to use to generate the items !simple = use pdfGrid, else use SimpleTable
             };
 
             var result = await generateCommand.ExecuteAsync(context);

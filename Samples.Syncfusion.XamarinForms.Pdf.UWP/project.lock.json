@@ -304,10 +304,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/15.2.0.43": {
-        "dependencies": {
-          "Xamarin.Forms": "2.3.3.180"
-        },
+      "Syncfusion.Xamarin.Compression/15.2.0.46": {
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -315,10 +312,9 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.46": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "15.2.0.43",
-          "Xamarin.Forms": "2.3.3.180"
+          "Syncfusion.Xamarin.Compression": "15.2.0.46"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -2651,10 +2647,7 @@
           "runtimes/win8-arm/native/clrcompression.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/15.2.0.43": {
-        "dependencies": {
-          "Xamarin.Forms": "2.3.3.180"
-        },
+      "Syncfusion.Xamarin.Compression/15.2.0.46": {
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -2662,10 +2655,9 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.46": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "15.2.0.43",
-          "Xamarin.Forms": "2.3.3.180"
+          "Syncfusion.Xamarin.Compression": "15.2.0.46"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -4889,10 +4881,7 @@
           "runtimes/win8-arm-aot/native/_._": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/15.2.0.43": {
-        "dependencies": {
-          "Xamarin.Forms": "2.3.3.180"
-        },
+      "Syncfusion.Xamarin.Compression/15.2.0.46": {
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -4900,10 +4889,9 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.46": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "15.2.0.43",
-          "Xamarin.Forms": "2.3.3.180"
+          "Syncfusion.Xamarin.Compression": "15.2.0.46"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -7097,10 +7085,7 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/15.2.0.43": {
-        "dependencies": {
-          "Xamarin.Forms": "2.3.3.180"
-        },
+      "Syncfusion.Xamarin.Compression/15.2.0.46": {
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -7108,10 +7093,9 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.46": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "15.2.0.43",
-          "Xamarin.Forms": "2.3.3.180"
+          "Syncfusion.Xamarin.Compression": "15.2.0.46"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -9344,10 +9328,7 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/15.2.0.43": {
-        "dependencies": {
-          "Xamarin.Forms": "2.3.3.180"
-        },
+      "Syncfusion.Xamarin.Compression/15.2.0.46": {
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -9355,10 +9336,9 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.46": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "15.2.0.43",
-          "Xamarin.Forms": "2.3.3.180"
+          "Syncfusion.Xamarin.Compression": "15.2.0.46"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -11552,10 +11532,7 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/15.2.0.43": {
-        "dependencies": {
-          "Xamarin.Forms": "2.3.3.180"
-        },
+      "Syncfusion.Xamarin.Compression/15.2.0.46": {
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -11563,10 +11540,9 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.46": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "15.2.0.43",
-          "Xamarin.Forms": "2.3.3.180"
+          "Syncfusion.Xamarin.Compression": "15.2.0.46"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -13799,10 +13775,7 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/15.2.0.43": {
-        "dependencies": {
-          "Xamarin.Forms": "2.3.3.180"
-        },
+      "Syncfusion.Xamarin.Compression/15.2.0.46": {
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         },
@@ -13810,10 +13783,9 @@
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/15.2.0.43": {
+      "Syncfusion.Xamarin.Pdf/15.2.0.46": {
         "dependencies": {
-          "Syncfusion.Xamarin.Compression": "15.2.0.43",
-          "Xamarin.Forms": "2.3.3.180"
+          "Syncfusion.Xamarin.Compression": "15.2.0.46"
         },
         "compile": {
           "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll": {},
@@ -16759,23 +16731,23 @@
         "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
-    "Syncfusion.Xamarin.Compression/15.2.0.43": {
-      "sha512": "TR+uwjFDNkG+yLEEehdLV2YOvhvaps1e9JKDddoQioBxGey7irQM2RLYpPFxI3Uz4xQ50xyLYDfQnazQrkgz6A==",
+    "Syncfusion.Xamarin.Compression/15.2.0.46": {
+      "sha512": "6MDOd/i5YS5pxAQUYt2xVPR8mUbIoaTe7g1NASt1QjbueXRWTW9kW9HuTcC9WuIO1RQzoyFdQ4W1D8s4lqN5gg==",
       "type": "package",
-      "path": "Syncfusion.Xamarin.Compression/15.2.0.43",
+      "path": "Syncfusion.Xamarin.Compression/15.2.0.46",
       "files": [
-        "Syncfusion.Xamarin.Compression.15.2.0.43.nupkg.sha512",
+        "Syncfusion.Xamarin.Compression.15.2.0.46.nupkg.sha512",
         "Syncfusion.Xamarin.Compression.nuspec",
         "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll",
         "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.xml"
       ]
     },
-    "Syncfusion.Xamarin.Pdf/15.2.0.43": {
-      "sha512": "B7iwFrQbboEsF8XtD4ohLbVaEHIeMVWP3slTPGZYEauyKNK3mCBnNusD7oMlAgW2zlBveRdvXCY5Kmcl/7szKA==",
+    "Syncfusion.Xamarin.Pdf/15.2.0.46": {
+      "sha512": "eZwQZXNxtjCP9J6bnh2iT8c8hTW2Xu1V4xAabLHj4LXyIgcBzHU8bwAn3NDnMhlYqntvnMiR/k8FBP34Ryv0ug==",
       "type": "package",
-      "path": "Syncfusion.Xamarin.Pdf/15.2.0.43",
+      "path": "Syncfusion.Xamarin.Pdf/15.2.0.46",
       "files": [
-        "Syncfusion.Xamarin.Pdf.15.2.0.43.nupkg.sha512",
+        "Syncfusion.Xamarin.Pdf.15.2.0.46.nupkg.sha512",
         "Syncfusion.Xamarin.Pdf.nuspec",
         "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.dll",
         "lib/portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Syncfusion.Compression.Portable.xml",
@@ -21948,7 +21920,7 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
       "Prism.Core >= 6.3.0",
-      "Syncfusion.Xamarin.Pdf >= 15.2.0.43",
+      "Syncfusion.Xamarin.Pdf >= 15.2.0.46",
       "Wibci.LogicCommand >= 1.1.0",
       "Wibci.Xamarin.Images >= 1.4.0",
       "Wibcisoft.Xamarin.Forms.Converters >= 1.0.2",
