@@ -185,21 +185,21 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             pdfGrid.Columns.Add(4);
 
-            pdfGrid.Columns[1].Width = 80; //TODO: Auto + Stretch
+            //pdfGrid.Columns[1].Width = 80; //TODO: Auto + Stretch
             pdfGrid.Columns[1].Format = new PdfStringFormat
             {
                 Alignment = PdfTextAlignment.Center,
                 LineAlignment = PdfVerticalAlignment.Middle
             };
 
-            pdfGrid.Columns[2].Width = 40; //TODO: Auto + Stretch
+            //pdfGrid.Columns[2].Width = 40; //TODO: Auto + Stretch
             pdfGrid.Columns[2].Format = new PdfStringFormat
             {
                 Alignment = PdfTextAlignment.Center,
                 LineAlignment = PdfVerticalAlignment.Middle
             };
 
-            pdfGrid.Columns[3].Width = 80; //TODO: Auto + Stretch
+            //pdfGrid.Columns[3].Width = 80; //TODO: Auto + Stretch
             pdfGrid.Columns[3].Format = new PdfStringFormat
             {
                 Alignment = PdfTextAlignment.Center,
@@ -230,6 +230,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 pdfGridRow.Cells[3].Value = item.Amount.ToString("n2");
             }
 
+            var data = request.Invoice.Items.Select(x => x.ItemAmount.ToString("n2"));
+            pdfGrid.Columns[1].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+            data = request.Invoice.Items.Select(x => x.Quantity.ToString("n2"));
+            pdfGrid.Columns[2].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+            data = request.Invoice.Items.Select(x => x.Amount.ToString("n2"));
+            pdfGrid.Columns[3].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+
             //Apply built-in table style
             //NOTE: that the accent2 color of #FFED7D31 is used in generating the total rectangle as well
             pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent2);
@@ -256,11 +263,9 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             float y = currentY + 10;
 
-            #region Original Code
-
             PdfLightTable pdfLightTable = new PdfLightTable();
 
-            pdfLightTable.Style = pdf.GenerateLightTableStyle(pdf.PdfGridStyle2Color, pdf.AccentColor, pdf.PdfGridStyle2AltColor, new PdfColor(Color.White));
+            pdfLightTable.ApplyLightTableStyle(pdf.PdfGridStyle2Color, pdf.AccentColor, pdf.PdfGridStyle2AltColor, new PdfColor(Color.White));
 
             pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
 
@@ -275,6 +280,15 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 pdfLightTable.Rows.Add(new object[] { item.Name, item.ItemAmount.ToString("n2"), item.Quantity.ToString(), item.Amount.ToString("n2") });
             }
 
+            //resize columns to content width - current a BUG in PdfLightTable implementation (works for PdfGrid)
+            //ref: https://www.syncfusion.com/forums/131302/pdfgrid-size-grid-to-content
+            var data = request.Invoice.Items.Select(x => x.ItemAmount.ToString("n2"));
+            pdfLightTable.Columns[1].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+            data = request.Invoice.Items.Select(x => x.Quantity.ToString("n2"));
+            pdfLightTable.Columns[2].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+            data = request.Invoice.Items.Select(x => x.Amount.ToString("n2"));
+            pdfLightTable.Columns[3].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+
             PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
 
             layoutFormat.Break = PdfLayoutBreakType.FitPage;
@@ -282,8 +296,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             layoutFormat.PaginateBounds = new RectangleF(0, 0, pdf.CurrentPage.Graphics.ClientSize.Width, pdf.CurrentPage.Graphics.ClientSize.Height - FOOTER_HEIGHT);
 
             var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(10, y), layoutFormat);
-
-            #endregion Original Code
 
             y = result.Bounds.Bottom;
 

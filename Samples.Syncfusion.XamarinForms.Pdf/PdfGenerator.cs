@@ -2,7 +2,6 @@
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Interactive;
-using Syncfusion.Pdf.Tables;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -200,36 +199,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             textLink.Text = linkText;
             textLink.Font = font;
             textLink.DrawTextWebLink(CurrentPageGraphics, new PointF(x, y));
-        }
-
-        public PdfLightTableStyle GenerateLightTableStyle(PdfColor borderColor, PdfColor textColor, PdfColor altBackgroundColor, PdfColor altTextColor)
-        {
-            var retStyle = new PdfLightTableStyle
-            {
-                BorderPen = new PdfPen(borderColor),
-                DefaultStyle = new PdfCellStyle
-                {
-                    TextBrush = new PdfSolidBrush(textColor),
-                    BorderPen = new PdfPen(borderColor)
-                },
-                AlternateStyle = new PdfCellStyle
-                {
-                    TextBrush = new PdfSolidBrush(textColor),
-                    BackgroundBrush = new PdfSolidBrush(altBackgroundColor),
-                    BorderPen = new PdfPen(borderColor)
-                },
-                ShowHeader = true,
-                RepeatHeader = true,
-                HeaderSource = PdfHeaderSource.ColumnCaptions,
-                HeaderStyle = new PdfCellStyle
-                {
-                    BorderPen = new PdfPen(borderColor),
-                    BackgroundBrush = new PdfSolidBrush(borderColor),
-                    TextBrush = new PdfSolidBrush(altTextColor)
-                }
-            };
-
-            return retStyle;
         }
 
         public float LongestText(string[] text, PdfFont font = null)
