@@ -103,7 +103,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             y += 5;
             PdfLayoutResult result = AddText(leftText, 10, y, font, textBrush);
 
-            AddText(rightText, 10, y, font, textBrush, true);
+            AddText(rightText, 10, result.Bounds.Y, font, textBrush, true);
 
             return result;
         }
