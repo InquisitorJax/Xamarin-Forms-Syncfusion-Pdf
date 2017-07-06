@@ -14,6 +14,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 {
     public class PdfGenerator
     {
+        private static float WORKING_HEIGHT = 0;
         private Dictionary<string, PdfPage> _pages;
 
         public PdfGenerator()
@@ -47,8 +48,11 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         }
 
         public PdfColor PdfGridStyle2AltColor { get; set; }
+
         public PdfBrush PdfGridStyle2Brush { get; set; }
+
         public PdfColor PdfGridStyle2Color { get; set; }
+
         public PdfFont SubHeadingFont { get; set; }
 
         private PdfGraphics CurrentPageGraphics
@@ -201,12 +205,45 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             textLink.DrawTextWebLink(CurrentPageGraphics, new PointF(x, y));
         }
 
+        /// <summary>
+        /// Check that the generated component hasn't returned a bottom bounds that is higher than the page
+        /// </summary>
+        /// <param name="currentY"></param>
+        /// <param name="footerHeight"></param>
+        /// <returns></returns>
+        public float IncrementY(float currentY, float addHeight, float footerHeight = 0, float nextElementHeight = 20)
+        {
+            currentY += addHeight;
+
+            if (WORKING_HEIGHT == 0)
+            {
+                WORKING_HEIGHT = CurrentPage.GetClientSize().Height - footerHeight;
+            }
+
+            var bottom = WORKING_HEIGHT - nextElementHeight;
+
+            if (bottom < currentY)
+            {
+                AddPage("add new page");
+                currentY = 0;
+            }
+            return currentY;
+        }
+
         public float LongestText(string[] text, PdfFont font = null)
         {
             font = font ?? NormalFont;
             float longest = text.Max(x => font.MeasureString(x).Width);
 
             return longest;
+        }
+
+        public float MeasureTextHeight(string text, PdfFont font = null)
+        {
+            font = font ?? NormalFont;
+            float height = font.MeasureString(text).Height;
+
+            return height;
         }
 
         public async Task<TaskResult> SaveAsync(string fileName, bool launchFile = true)

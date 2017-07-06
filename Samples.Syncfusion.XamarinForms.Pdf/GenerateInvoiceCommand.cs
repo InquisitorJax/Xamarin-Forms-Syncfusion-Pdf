@@ -32,19 +32,20 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             PdfGenerator pdf = new PdfGenerator();
             pdf.Setup("Invoice");
 
-            //GenerateHeader(request, pdf);
-
             float y = GenerateBodyHeader(request, pdf);
 
             y = GenerateBody(request, pdf, y, !request.SimpleFormat);
 
-            y = GenerateSignature(request, pdf, y);
+            //if the next bit (total + signature) might be split - rather create new page
+            y = pdf.IncrementY(y, 0, FOOTER_HEIGHT, 180); //110 + 70 = estimated height of total + signature
 
-            y += 10;
+            y = GenerateTotal(request, pdf, y);
+
+            y = GenerateSignature(request, pdf, y);
 
             y = GenerateTermsBody(request, pdf, y);
 
-            GenerateFooter(request, pdf);
+            GenerateFooter(request, pdf); //BUG: Generate footer before body to cater for bug where paginatebounds not taken into account for pdfLightTable
             //Save the document.
             await pdf.SaveAsync(request.FileName);
 
@@ -55,10 +56,11 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             float y = currentY;
 
-            y += 10;
+            y = pdf.IncrementY(y, 10, FOOTER_HEIGHT);
             PdfLayoutResult result = pdf.AddText(request.Invoice.Description, 10, y);
 
             y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 0, FOOTER_HEIGHT);
 
             if (generateItems)
             {
@@ -71,8 +73,6 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                     y = GenerateItemizedBodyWithGrid(request, pdf, y);
                 }
             }
-
-            y = GenerateTotal(request, pdf, y);
 
             return y;
         }
@@ -118,23 +118,24 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             string customer = request.Invoice.Customer + Environment.NewLine + request.Invoice.Address;
             result = pdf.AddText(customer, 0, y, font);
 
-            y = result.Bounds.Bottom + 10;
+            y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 10, FOOTER_HEIGHT, 30);
 
             string leftText = "INVOICE #" + request.Invoice.Number.ToString();
             string rightText = DateTime.Now.ToString("dd MMM yyyy");
             result = pdf.AddRectangleText(leftText, rightText, y, 30);
 
             y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 15, FOOTER_HEIGHT);
 
-            y += 15;
             //Creates text elements to add the address and draw it to the page.
             result = pdf.AddText(request.Invoice.Heading, 10, y, pdf.SubHeadingFont);
             y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 3, FOOTER_HEIGHT);
 
-            y += 3;
             pdf.DrawHorizontalLine(0, pdf.PageWidth, y, 0.7f, pdf.AccentColor);
 
-            y += 1;
+            y = pdf.IncrementY(y, 1, FOOTER_HEIGHT);
 
             return y;
         }
@@ -176,7 +177,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
         private float GenerateItemizedBodyWithGrid(GenerateInvoiceContext request, PdfGenerator pdf, float y)
         {
-            y += 10;
+            y = pdf.IncrementY(y, 10, FOOTER_HEIGHT);
             //Create a new PdfGrid.
 
             PdfGrid pdfGrid = new PdfGrid();
@@ -184,27 +185,14 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             //Add four columns.
 
             pdfGrid.Columns.Add(4);
-
-            //pdfGrid.Columns[1].Width = 80; //TODO: Auto + Stretch
-            pdfGrid.Columns[1].Format = new PdfStringFormat
+            var columnFormat = new PdfStringFormat
             {
                 Alignment = PdfTextAlignment.Center,
                 LineAlignment = PdfVerticalAlignment.Middle
             };
-
-            //pdfGrid.Columns[2].Width = 40; //TODO: Auto + Stretch
-            pdfGrid.Columns[2].Format = new PdfStringFormat
-            {
-                Alignment = PdfTextAlignment.Center,
-                LineAlignment = PdfVerticalAlignment.Middle
-            };
-
-            //pdfGrid.Columns[3].Width = 80; //TODO: Auto + Stretch
-            pdfGrid.Columns[3].Format = new PdfStringFormat
-            {
-                Alignment = PdfTextAlignment.Center,
-                LineAlignment = PdfVerticalAlignment.Middle
-            };
+            pdfGrid.Columns[1].Format = columnFormat;
+            pdfGrid.Columns[2].Format = columnFormat;
+            pdfGrid.Columns[3].Format = columnFormat;
 
             //Add header.
 
@@ -270,10 +258,15 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
 
             //Add columns to the DataTable
-            pdfLightTable.Columns.Add(new PdfColumn("Title"));
-            pdfLightTable.Columns.Add(new PdfColumn("Cost"));
-            pdfLightTable.Columns.Add(new PdfColumn("Qty"));
-            pdfLightTable.Columns.Add(new PdfColumn("Total"));
+            var columnFormat = new PdfStringFormat
+            {
+                Alignment = PdfTextAlignment.Center,
+                LineAlignment = PdfVerticalAlignment.Middle
+            };
+            pdfLightTable.Columns.Add(new PdfColumn("Title") { StringFormat = columnFormat });
+            pdfLightTable.Columns.Add(new PdfColumn("Cost") { StringFormat = columnFormat });
+            pdfLightTable.Columns.Add(new PdfColumn("Qty") { StringFormat = columnFormat });
+            pdfLightTable.Columns.Add(new PdfColumn("Total") { StringFormat = columnFormat });
 
             foreach (var item in request.Invoice.Items)
             {
@@ -282,12 +275,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
             //resize columns to content width - current a BUG in PdfLightTable implementation (works for PdfGrid)
             //ref: https://www.syncfusion.com/forums/131302/pdfgrid-size-grid-to-content
-            var data = request.Invoice.Items.Select(x => x.ItemAmount.ToString("n2"));
-            pdfLightTable.Columns[1].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
-            data = request.Invoice.Items.Select(x => x.Quantity.ToString("n2"));
-            pdfLightTable.Columns[2].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
-            data = request.Invoice.Items.Select(x => x.Amount.ToString("n2"));
-            pdfLightTable.Columns[3].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+
+            //var data = request.Invoice.Items.Select(x => x.ItemAmount.ToString("n2"));
+            //pdfLightTable.Columns[1].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+            //data = request.Invoice.Items.Select(x => x.Quantity.ToString("n2"));
+            //pdfLightTable.Columns[2].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
+            //data = request.Invoice.Items.Select(x => x.Amount.ToString("n2"));
+            //pdfLightTable.Columns[3].SizeColumnToContent(data, pdf.PageWidth, pdf.NormalFont);
 
             PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
 
@@ -298,29 +292,36 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             var result = pdfLightTable.Draw(pdf.CurrentPage, new PointF(10, y), layoutFormat);
 
             y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 0, FOOTER_HEIGHT);
 
             return y;
         }
 
         private float GenerateSignature(GenerateInvoiceContext request, PdfGenerator pdf, float y)
         {
-            y += 55; //gap to place signature
+            y = pdf.IncrementY(y, 55, FOOTER_HEIGHT); //gap to place signature
 
             pdf.DrawHorizontalLine(15, 85, y, 0.7f, pdf.AccentColor);
             pdf.DrawHorizontalLine(85, 15, y, 0.7f, pdf.AccentColor, null, true);
 
-            y += 2;
+            y = pdf.IncrementY(y, 2, FOOTER_HEIGHT);
             var result = pdf.AddText("customer", 15, y);
             result = pdf.AddText("business", 15, y, null, null, true);
             y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 0, FOOTER_HEIGHT);
 
             return y;
         }
 
         private float GenerateTermsBody(GenerateInvoiceContext request, PdfGenerator pdf, float y)
         {
+            var check = pdf.MeasureTextHeight(request.Invoice.Terms);
+            y = pdf.IncrementY(y, 10, FOOTER_HEIGHT, check); //don't split terms over the footer
+
             PdfLayoutResult result = pdf.AddText(request.Invoice.Terms, 10, y, pdf.NormalFontBold);
             y = result.Bounds.Bottom;
+            //NOTE: last item - don't check for increment
+
             return y;
         }
 
@@ -332,23 +333,25 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             double total = request.Invoice.Amount + vatAmount;
             total = Math.Round(total, 2);
 
-            y += 10;
+            y = pdf.IncrementY(y, 10, FOOTER_HEIGHT);
             string leftText = "TOTAL";
             string rightText = request.Invoice.Currency + " " + request.Invoice.Amount.ToString();
             PdfLayoutResult result = pdf.AddRectangleText(leftText, rightText, y, 30, PdfBrushes.White, pdf.AccentBrush, pdf.NormalFontBold);
             y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 0, FOOTER_HEIGHT, 30);
 
             leftText = "VAT" + request.Invoice.VatPercentage + "%";
             rightText = request.Invoice.Currency + " " + vatAmount.ToString();
             result = pdf.AddRectangleText(leftText, rightText, y, 30, PdfBrushes.White, pdf.AccentBrush, pdf.NormalFontBold);
             y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 5, FOOTER_HEIGHT);
 
-            y += 5;
             leftText = "Total Due";
             rightText = request.Invoice.Currency + " " + total.ToString();
             result = pdf.AddRectangleText(leftText, rightText, y, 30, pdf.PdfGridStyle2Brush);
 
-            y = result.Bounds.Bottom + 10;
+            y = result.Bounds.Bottom;
+            y = pdf.IncrementY(y, 10, FOOTER_HEIGHT);
 
             return y;
         }
