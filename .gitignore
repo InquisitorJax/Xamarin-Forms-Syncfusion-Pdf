@@ -23,4 +23,6 @@
 /Samples.Syncfusion.XamarinForms.Pdf.iOS/obj
 /Samples.Syncfusion.XamarinForms.Pdf.UWP/obj/x86/Debug
 /Samples.Syncfusion.XamarinForms.Pdf.UWP/bin/x86/Debug
-/.vs/config
+/.vs
+/Samples.Syncfusion.XamarinForms.Pdf.Droid/obj/.cache
+/Samples.Syncfusion.XamarinForms.Pdf.UWP/obj
