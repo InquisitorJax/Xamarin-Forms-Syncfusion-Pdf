@@ -46,13 +46,21 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             y = GenerateTermsBody(request, pdf, y);
 
             GenerateFooter(request, pdf); //BUG: Generate footer before body to cater for bug where paginatebounds not taken into account for pdfLightTable
-            //Save the document.
-            await pdf.SaveAsync(request.FileName);
+										  //Save the document.
+			byte[] blob = pdf.SaveAsBlob();
 
-            return retResult;
-        }
+			retResult.PdfResult = blob;
 
-        private float GenerateBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY, bool generateItems)
+			if (request.OpenFileUsingSystemApp)
+			{
+				await pdf.SaveAsync(request.FileName, request.OpenFileUsingSystemApp);
+				retResult.FileName = request.FileName;
+			}
+
+			return retResult;
+		}
+
+		private float GenerateBody(GenerateInvoiceContext request, PdfGenerator pdf, float currentY, bool generateItems)
         {
             float y = currentY;
 
@@ -359,6 +367,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
     public class GenerateInvoiceContext
     {
+		public bool OpenFileUsingSystemApp { get; set; }
+			 
         public string FileName { get; set; }
 
         public Invoice Invoice { get; set; }

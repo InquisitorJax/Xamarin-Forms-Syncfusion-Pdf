@@ -49,7 +49,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf.Droid
                 retResult.Notification.Add(e.Message);
             }
 
-            if (file.Exists())
+            if (request.LaunchFile && file.Exists())
 
             {
                 Android.Net.Uri path = Android.Net.Uri.FromFile(file);

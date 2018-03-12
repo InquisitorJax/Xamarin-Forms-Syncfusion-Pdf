@@ -2,6 +2,7 @@
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Interactive;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -80,7 +81,20 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             }
         }
 
-        public void AddPage(string name)
+
+		public byte[] SaveAsBlob()
+		{
+			byte[] retDoc = null;
+			using (MemoryStream ms = new MemoryStream())
+			{
+				Document.Save(ms);
+				retDoc = ms.ToArray();
+			}
+
+			return retDoc;
+		}
+
+		public void AddPage(string name)
         {
             if (_pages.ContainsKey(name))
             {
@@ -246,7 +260,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             return height;
         }
 
-        public async Task<TaskResult> SaveAsync(string fileName, bool launchFile = true)
+		public async Task<TaskResult> SaveAsync(string fileName, bool launchFile = true)
         {
             TaskResult result = TaskResult.Success;
             using (MemoryStream ms = new MemoryStream())

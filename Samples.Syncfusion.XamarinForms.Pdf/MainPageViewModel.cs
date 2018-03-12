@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using System;
 using System.Diagnostics;
 using System.Windows.Input;
 using Wibci.LogicCommand;
@@ -18,6 +19,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         private bool _useCamera;
 
         private bool _useSimpleTable;
+
+		public event EventHandler<EventArgs> RequestShowPdf;
 
         public MainPageViewModel()
         {
@@ -68,9 +71,10 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 FileName = "syncfusionInvoice.pdf",
                 Invoice = Model,
                 LogoHeight = _logoHeight,
-                LogoWidth = _logoWidth,
+                LogoWidth = _logoWidth,				
                 SimpleFormat = false, //simple format doesn't generate line items for each invoice item
-                SimpleTableItems = UseSimpleTable //when SimpleFormat = false - choose what kind of table to use to generate the items !simple = use pdfGrid, else use SimpleTable
+                SimpleTableItems = UseSimpleTable, //when SimpleFormat = false - choose what kind of table to use to generate the items !simple = use pdfGrid, else use SimpleTable
+				OpenFileUsingSystemApp = false
             };
 
             var result = await generateCommand.ExecuteAsync(context);
@@ -79,6 +83,14 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
             {
                 Debug.WriteLine($"Generate Invoice FAILED! {result.Notification.ToString()}");
             }
+
+			if (result.IsValid())
+			{
+				PdfMemoryStore.CurrentDocument = result.PdfResult;
+				//show pdf in pdf viewer
+				if (RequestShowPdf != null)
+					RequestShowPdf.Invoke(this, EventArgs.Empty);
+			}
         }
 
         private async void SelectPicture()
