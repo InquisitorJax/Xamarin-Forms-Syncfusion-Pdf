@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\Resources\MaskImage.png" Link="Resources\MaskImage.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="7.2.0.1367" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="17.2.0.36" />
+    <PackageReference Include="Wibci.Xamarin.Forms.Converters" Version="2.0.0" />
+    <PackageReference Include="Wibci.Xamarin.Images" Version="2.0.3" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+</Project>

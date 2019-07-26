@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs/Xam.Sf.FormsPdf/v16/Server/sqlite3
+/Xam.Sf.FormsPdf/Xam.Sf.FormsPdf/bin/Debug/netstandard2.0
+/Xam.Sf.FormsPdf/Xam.Sf.FormsPdf/obj
+/Xam.Sf.FormsPdf/Xam.Sf.FormsPdf.Android/bin/Debug
+/Xam.Sf.FormsPdf/Xam.Sf.FormsPdf.Android/obj
+/Xam.Sf.FormsPdf/Xam.Sf.FormsPdf.iOS/obj
+/Xam.Sf.FormsPdf/Xam.Sf.FormsPdf.UWP/obj
