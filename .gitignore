@@ -2,27 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/packages
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf/obj/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.Droid/obj/Debug/__library_projects__
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.iOS/obj/iPhone/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.UWP/obj/x86/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.Droid/Resources/Resource.Designer.cs
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf/bin/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.Droid/bin/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.Droid/obj/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.UWP/bin/x86/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.iOS/bin/iPhoneSimulator/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/Samples.Syncfusion.XamarinForms.Pdf.iOS/obj/iPhoneSimulator/Debug
-/temp
-/Samples.Syncfusion.XamarinForms.Pdf/bin/Debug
-/Samples.Syncfusion.XamarinForms.Pdf/obj/Debug
-/Samples.Syncfusion.XamarinForms.Pdf.Droid/bin/Debug
-/Samples.Syncfusion.XamarinForms.Pdf.Droid/obj/Debug
-/Samples.Syncfusion.XamarinForms.Pdf.iOS/bin/iPhoneSimulator/Debug
-/Samples.Syncfusion.XamarinForms.Pdf.iOS/obj
-/Samples.Syncfusion.XamarinForms.Pdf.UWP/obj/x86/Debug
-/Samples.Syncfusion.XamarinForms.Pdf.UWP/bin/x86/Debug
-/.vs
-/Samples.Syncfusion.XamarinForms.Pdf.Droid/obj/.cache
-/Samples.Syncfusion.XamarinForms.Pdf.UWP/obj
+/.vs/Xam.Sf.FormsPdf/v16/Server/sqlite3
