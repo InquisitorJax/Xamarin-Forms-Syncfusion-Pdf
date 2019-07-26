@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿
 using Foundation;
 using Samples.Syncfusion.XamarinForms.Pdf;
 using UIKit;
+using Wibci.Xamarin.Images;
+using Xamarin.Forms;
 
 namespace Xam.Sf.FormsPdf.iOS
 {
@@ -25,6 +24,12 @@ namespace Xam.Sf.FormsPdf.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 			LoadApplication(new App());
+
+			DependencyService.Register<ISaveFileStreamCommand, iOSSaveFileStreamCommand>();
+			DependencyService.Register<IResizeImageCommand, Wibci.Xamarin.Images.iOS.iOSImageResizeCommand>();
+			DependencyService.Register<IAnalyseImageCommand, Wibci.Xamarin.Images.iOS.iOSAnalyseImageCommand>();
+			DependencyService.Register<IImageUtility, AppleImageUtility>();
+
 
 			return base.FinishedLaunching(app, options);
 		}
