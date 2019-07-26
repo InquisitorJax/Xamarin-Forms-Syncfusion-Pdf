@@ -7,6 +7,7 @@ using Samples.Syncfusion.XamarinForms.Pdf;
 using Xamarin.Forms;
 using Wibci.Xamarin.Images;
 using Wibci.Xamarin.Images.Droid;
+using Plugin.CurrentActivity;
 
 namespace Xam.Sf.FormsPdf.Droid
 {
@@ -20,12 +21,16 @@ namespace Xam.Sf.FormsPdf.Droid
 
 			base.OnCreate(savedInstanceState);
 
+			CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
 			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 			LoadApplication(new App());
 
 			DependencyService.Register<ISaveFileStreamCommand, AndroidSaveFileStreamCommand>();
 			DependencyService.Register<IResizeImageCommand, AndroidResizeImageCommand>();
+			DependencyService.Register<IAnalyseImageCommand, AndroidAnalyseImageCommand>();
+			DependencyService.Register<IImageUtility, AndroidImageUtility>();
 
 		}
 		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
