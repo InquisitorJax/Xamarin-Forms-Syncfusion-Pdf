@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UWPSaveFileStreamCommand.cs" />
+    <Compile Include="WindowsImageUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -146,6 +147,12 @@
   <ItemGroup>
     <PackageReference Include="Prism.Core">
       <Version>7.2.0.1367</Version>
+    </PackageReference>
+    <PackageReference Include="SixLabors.ImageSharp">
+      <Version>1.0.0-beta0006</Version>
+    </PackageReference>
+    <PackageReference Include="SixLabors.ImageSharp.Drawing">
+      <Version>1.0.0-beta0006</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer">
       <Version>17.2.0.36</Version>
