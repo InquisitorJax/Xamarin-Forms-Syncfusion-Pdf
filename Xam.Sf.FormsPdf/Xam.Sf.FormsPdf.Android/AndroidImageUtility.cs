@@ -29,9 +29,38 @@ namespace Xam.Sf.FormsPdf.Droid
 			return retImage;
 		}
 
+
+		private Bitmap GetSquareBitmap(Bitmap bitmap)
+		{
+			Bitmap output;
+			if (bitmap.Width >= bitmap.Height)
+			{
+				output = Bitmap.CreateBitmap(
+				   bitmap,
+				   bitmap.Width / 2 - bitmap.Height / 2,
+				   0,
+				   bitmap.Height,
+				   bitmap.Height);
+
+			}
+			else
+			{
+
+				output = Bitmap.CreateBitmap(
+				   bitmap,
+				   0,
+				   bitmap.Height / 2 - bitmap.Width / 2,
+				   bitmap.Width,
+				   bitmap.Width);
+			}
+			return output;
+		}
+
 		private Bitmap GetRoundedCroppedBitmap(Bitmap bitmap)
 		{
 			//doc: https://stackoverflow.com/questions/11932805/cropping-circular-area-from-bitmap-in-android
+
+			bitmap = GetSquareBitmap(bitmap);
 
 			int widthLight = bitmap.Width;
 			int heightLight = bitmap.Height;
