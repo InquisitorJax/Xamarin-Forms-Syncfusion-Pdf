@@ -20,9 +20,11 @@ namespace Xam.Sf.FormsPdf.UWP
 				var size = new Size(breadth, breadth);
 				using (var cropped = img.Clone(x => WindowsImageUtility.ConvertToAvatar(x, size, cornerRadius)))
 				{
-					var memoryStream = new MemoryStream();
-					cropped.SaveAsPng(memoryStream);
-					retImageBytes = memoryStream.ToArray();
+					using (var memoryStream = new MemoryStream())
+					{
+						cropped.SaveAsPng(memoryStream);
+						retImageBytes = memoryStream.ToArray();
+					}
 				}
 
 			}
