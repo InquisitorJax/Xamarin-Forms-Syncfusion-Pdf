@@ -23,6 +23,10 @@ namespace Xam.Sf.FormsPdf.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
+
+			Syncfusion.SfPdfViewer.XForms.iOS.SfPdfDocumentViewRenderer.Init();
+			Syncfusion.SfRangeSlider.XForms.iOS.SfRangeSliderRenderer.Init();
+
 			LoadApplication(new App());
 
 			DependencyService.Register<ISaveFileStreamCommand, iOSSaveFileStreamCommand>();
