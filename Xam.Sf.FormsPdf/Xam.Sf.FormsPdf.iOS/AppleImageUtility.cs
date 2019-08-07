@@ -10,10 +10,10 @@ namespace Xam.Sf.FormsPdf.iOS
 		public byte[] TransformIntoCircle(byte[] image)
 		{
 			UIImage uiImage = new UIImage(NSData.FromArray(image));
-			var squareImage = CropSquare(uiImage);
-			var croppedImage = CropCircle(squareImage);
+			uiImage = CropSquare(uiImage);
+			uiImage = CropCircle(uiImage);
 
-			var result = croppedImage.AsPNG().ToArray();
+			var result = uiImage.AsPNG().ToArray();
 
 			return result;
 		}

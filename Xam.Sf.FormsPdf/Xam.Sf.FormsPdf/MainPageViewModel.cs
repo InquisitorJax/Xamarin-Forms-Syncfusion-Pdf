@@ -71,8 +71,8 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 			{
 				FileName = "syncfusionInvoice.pdf",
 				Invoice = Model,
-				LogoHeight = _logoHeight,
-				LogoWidth = _logoWidth,
+				LogoHeight = _logoHeight / 2,
+				LogoWidth = _logoWidth / 2,
 				SimpleFormat = false, //simple format doesn't generate line items for each invoice item
 				SimpleTableItems = UseSimpleTable, //when SimpleFormat = false - choose what kind of table to use to generate the items !simple = use pdfGrid, else use SimpleTable
 				OpenFileUsingSystemApp = false
@@ -112,16 +112,16 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 
 			if (pictureResult.TaskResult == TaskResult.Success)
 			{
-				var analyseImage = DependencyService.Get<IAnalyseImageCommand>();
-				var analyseResult = await analyseImage.ExecuteAsync(new AnalyseImageContext { Image = pictureResult.Image });
-				if (analyseResult.IsValid())
-				{
-					var cropImage = DependencyService.Get<IImageUtility>();
+				var cropImage = DependencyService.Get<IImageUtility>();
+				var croppedImage = cropImage.TransformIntoCircle(pictureResult.Image);
 
-					var croppedImage = cropImage.TransformIntoCircle(pictureResult.Image);
+				var analyseImage = DependencyService.Get<IAnalyseImageCommand>();
+				var croppedAnalyseResult = await analyseImage.ExecuteAsync(new AnalyseImageContext { Image = croppedImage });				
+				if (croppedAnalyseResult.IsValid())
+				{
 					Model.Logo = croppedImage;
-					_logoWidth = analyseResult.Width;
-					_logoHeight = analyseResult.Height;
+					_logoWidth = croppedAnalyseResult.Width;
+					_logoHeight = croppedAnalyseResult.Height;
 				}
 				else
 				{
