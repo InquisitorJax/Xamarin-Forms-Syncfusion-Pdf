@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>Nexus_5X_API_28_x86</SelectedDevice>
     <DefaultDevice>Nexus_5X_API_28_x86</DefaultDevice>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
 </Project>

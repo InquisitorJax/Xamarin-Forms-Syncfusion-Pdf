@@ -22,10 +22,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
         {
             var retResult = new SelectPictureResult();
 
-            //NOTE: send suspend event BEFORE page_disappearing event fires to page is not removed from the view stack
-            //...   resume will be called by generic life-cycle
-
-            if (!MediaPicker.IsPickPhotoSupported)
+			if (!MediaPicker.IsPickPhotoSupported)
             {
                 retResult.Notification.Add("No camera available :(");
                 retResult.TaskResult = TaskResult.Failed;

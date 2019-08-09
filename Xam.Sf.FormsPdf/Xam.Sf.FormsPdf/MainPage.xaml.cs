@@ -11,7 +11,13 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 			_viewModel = new MainPageViewModel();
 			_viewModel.RequestShowPdf += ViewModel_RequestShowPdf;
             BindingContext = _viewModel;
+			Disappearing += MainPage_Disappearing;
         }
+
+		private void MainPage_Disappearing(object sender, System.EventArgs e)
+		{
+			
+		}
 
 		private async void ViewModel_RequestShowPdf(object sender, System.EventArgs e)
 		{
