@@ -5,7 +5,9 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms">
 	<ContentPage.Content>
 
-		<syncfusion:SfPdfViewer x:Name="pdfViewerControl" InputFileStream="{Binding DocumentFileStream}" />
+		<syncfusion:SfPdfViewer x:Name="pdfViewerControl"
+		                        InputFileStream="{Binding DocumentFileStream}"
+		                        ShowPageNumber="False" />
 
 	</ContentPage.Content>
 </ContentPage>
