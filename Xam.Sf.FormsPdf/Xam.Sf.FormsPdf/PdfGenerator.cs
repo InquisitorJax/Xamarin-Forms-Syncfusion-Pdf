@@ -2,6 +2,7 @@
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Interactive;
+using Syncfusion.Pdf.Parsing;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Wibci.LogicCommand;
+using Xam.Sf.FormsPdf;
 using Xamarin.Forms;
 
 namespace Samples.Syncfusion.XamarinForms.Pdf
@@ -80,6 +82,22 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
                 }
             }
         }
+
+		public void AddTemplateResourceToCurrentPage(string resourceFileName)
+		{
+			if (CurrentPage == null)
+			{
+				return;
+			}
+			//doc: https://help.syncfusion.com/file-formats/pdf/working-with-pdf-templates
+
+			byte[] file = resourceFileName.LoadAppResourceFromFile();
+
+			var loadedDocument = new PdfLoadedDocument(file);
+			var loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+			PdfTemplate template = loadedPage.CreateTemplate();
+			CurrentPageGraphics.DrawPdfTemplate(template, PointF.Empty, new SizeF(CurrentPage.Size.Width, CurrentPage.Size.Height));
+		}
 
 
 		public byte[] SaveAsBlob()

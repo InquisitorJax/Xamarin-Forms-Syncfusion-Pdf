@@ -34,6 +34,7 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 			//https://help.syncfusion.com/file-formats/pdf/getting-started
 			PdfGenerator pdf = new PdfGenerator();
 			pdf.Setup("Invoice");
+			//pdf.AddTemplateResourceToCurrentPage("Template.pdf");
 
 			float y = GenerateBodyHeader(request, pdf);
 
