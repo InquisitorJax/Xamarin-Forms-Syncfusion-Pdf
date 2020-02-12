@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Samples.Syncfusion.XamarinForms.Pdf.PdfDocPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms">
+	<ContentPage.Content>
+		<Grid>
+			<Grid.Resources>
+				<ResourceDictionary>
+					<syncfusion:Toolbar x:Key="ToolbarSettings">
+						<syncfusion:Toolbar.Enabled>false</syncfusion:Toolbar.Enabled>
+					</syncfusion:Toolbar>
+				</ResourceDictionary>
+
+			</Grid.Resources>
+
+			<tabView:SfTabView BackgroundColor="White"
+			                   TabHeaderPosition="Bottom"
+			                   VisibleHeaderCount="2">
+				<tabView:SfTabView.SelectionIndicatorSettings>
+					<tabView:SelectionIndicatorSettings Position="Top" Color="LightBlue" />
+				</tabView:SfTabView.SelectionIndicatorSettings>
+				<tabView:SfTabItem Title="doc 1"
+				                   SelectionColor="Blue"
+				                   TitleFontColor="Blue">
+					<tabView:SfTabItem.Content>
+						<Grid>
+							<syncfusion:SfPdfViewer x:Name="pdfViewerControl1"
+							                        BookmarkNavigationEnabled="False"
+							                        EnableScrollHead="False"
+							                        InputFileStream="{Binding DocumentFileStream}"
+							                        IsTextSearchEnabled="False"
+							                        ShowPageNumber="False"
+							                        Toolbar="{StaticResource ToolbarSettings}" />
+						</Grid>
+					</tabView:SfTabItem.Content>
+				</tabView:SfTabItem>
+				<tabView:SfTabItem Title="doc 2"
+				                   SelectionColor="Blue"
+				                   TitleFontColor="Blue">
+					<tabView:SfTabItem.Content>
+						<Grid>
+							<syncfusion:SfPdfViewer x:Name="pdfViewerControl2"
+							                        BookmarkNavigationEnabled="False"
+							                        EnableScrollHead="False"
+							                        InputFileStream="{Binding DocumentFileStream}"
+							                        IsTextSearchEnabled="False"
+							                        ShowPageNumber="False"
+							                        Toolbar="{StaticResource ToolbarSettings}" />
+						</Grid>
+					</tabView:SfTabItem.Content>
+				</tabView:SfTabItem>
+
+
+			</tabView:SfTabView>
+
+
+			<Button Margin="0,0,0,-25"
+			        BackgroundColor="White"
+			        BorderColor="Green"
+			        BorderWidth="2"
+			        Clicked="Button_Clicked"
+			        CornerRadius="36"
+			        HeightRequest="90"
+			        HorizontalOptions="Center"
+			        Text="done"
+			        TextColor="Green"
+			        VerticalOptions="End"
+			        WidthRequest="58" />
+
+		</Grid>
+
+
+	</ContentPage.Content>
+</ContentPage>

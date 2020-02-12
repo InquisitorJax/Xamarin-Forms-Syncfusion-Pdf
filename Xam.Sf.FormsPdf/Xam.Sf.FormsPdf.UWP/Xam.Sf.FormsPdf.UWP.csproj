@@ -157,6 +157,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer">
       <Version>17.4.0.49</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView">
+      <Version>17.4.0.49</Version>
+    </PackageReference>
     <PackageReference Include="Wibci.Xamarin.Images">
       <Version>2.0.3</Version>
     </PackageReference>

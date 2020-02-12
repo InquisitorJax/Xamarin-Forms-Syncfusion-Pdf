@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
     <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="17.4.0.49" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="17.4.0.49" />
     <PackageReference Include="Wibci.Xamarin.Forms.Converters" Version="2.0.0" />
     <PackageReference Include="Wibci.Xamarin.Images" Version="2.0.3" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
@@ -30,5 +31,15 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\..\Resources\Template.pdf" Link="Resources\Template.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\Resources\LongPdf.pdf" Link="Resources\LongPdf.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="PdfDocPage.xaml.cs">
+      <DependentUpon>PdfDocPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

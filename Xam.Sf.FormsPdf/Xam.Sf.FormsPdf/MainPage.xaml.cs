@@ -23,5 +23,10 @@ namespace Samples.Syncfusion.XamarinForms.Pdf
 		{
 			await Navigation.PushAsync(new PdfViewer());
 		}
+
+		private async void Show_PdfDoc(object sender, System.EventArgs e)
+		{
+			await Navigation.PushAsync(new PdfDocPage());
+		}
 	}
 }

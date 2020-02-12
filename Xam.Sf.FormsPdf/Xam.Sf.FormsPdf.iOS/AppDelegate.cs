@@ -26,6 +26,7 @@ namespace Xam.Sf.FormsPdf.iOS
 
 			Syncfusion.SfPdfViewer.XForms.iOS.SfPdfDocumentViewRenderer.Init();
 			Syncfusion.SfRangeSlider.XForms.iOS.SfRangeSliderRenderer.Init();
+			Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
 
 			LoadApplication(new App());
 

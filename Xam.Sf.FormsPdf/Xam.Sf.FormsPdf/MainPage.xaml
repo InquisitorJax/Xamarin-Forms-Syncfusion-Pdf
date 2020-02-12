@@ -4,56 +4,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:Wibci.Xamarin.Forms.Converters;assembly=Wibci.Xamarin.Forms.Converters"
              xmlns:local="clr-namespace:Samples.Syncfusion.XamarinForms.Pdf">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding SelectPictureCommand}"
-                     Icon="ic_camera"
-                     Order="Primary"
-                     Priority="0" />
-    </ContentPage.ToolbarItems>
-    <ContentPage.Content>
-        <Grid>
-            <Grid.Resources>
-                <ResourceDictionary>
-                    <converters:ByteArrayToImageSourceConverter x:Key="bisc" />
-                    <converters:BooleanToInvertedBooleanConverter x:Key="bib" />
-                </ResourceDictionary>
-            </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <StackLayout Padding="3,12,3,0">
-                <StackLayout Orientation="Horizontal">
-                    <Switch IsToggled="{Binding UseCamera}" />
-                    <Label IsVisible="{Binding UseCamera}" Text="use camera" />
-                    <Label IsVisible="{Binding UseCamera, Converter={StaticResource bib}}" Text="pick photo" />
-                </StackLayout>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Command="{Binding SelectPictureCommand}"
+		             Icon="ic_camera"
+		             Order="Primary"
+		             Priority="0" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<Grid>
+			<Grid.Resources>
+				<ResourceDictionary>
+					<converters:ByteArrayToImageSourceConverter x:Key="bisc" />
+					<converters:BooleanToInvertedBooleanConverter x:Key="bib" />
+				</ResourceDictionary>
+			</Grid.Resources>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<StackLayout Padding="3,12,3,0">
+				<StackLayout Orientation="Horizontal">
+					<Switch IsToggled="{Binding UseCamera}" />
+					<Label IsVisible="{Binding UseCamera}" Text="use camera" />
+					<Label IsVisible="{Binding UseCamera, Converter={StaticResource bib}}" Text="pick photo" />
+				</StackLayout>
 
-                <Image HeightRequest="100"
-                       HorizontalOptions="CenterAndExpand"
-                       Source="{Binding Model.Logo,
-                                        Converter={StaticResource bisc},
-                                        ConverterParameter=icon}"
-                       WidthRequest="100" />
-                <Entry Placeholder="heading" Text="{Binding Model.Heading}" />
-                <Label FontSize="Micro" Text="description" />
-                <local:ExpandingEditor Text="{Binding Model.Description}" />
-                <Label FontSize="Micro" Text="number of invoice items" />
-                <Entry Keyboard="Numeric"
-                       Placeholder="number of invoice items"
-                       Text="{Binding NumberOfInvoiceItems}" />
+				<Image HeightRequest="100"
+				       HorizontalOptions="CenterAndExpand"
+				       Source="{Binding Model.Logo, Converter={StaticResource bisc}, ConverterParameter=icon}"
+				       WidthRequest="100" />
+				<Entry Placeholder="heading" Text="{Binding Model.Heading}" />
+				<Label FontSize="Micro" Text="description" />
+				<local:ExpandingEditor Text="{Binding Model.Description}" />
+				<Label FontSize="Micro" Text="number of invoice items" />
+				<Entry Keyboard="Numeric"
+				       Placeholder="number of invoice items"
+				       Text="{Binding NumberOfInvoiceItems}" />
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Use PdfLightTable" />
-                    <Switch IsToggled="{Binding UseSimpleTable}" />
-                </StackLayout>
-                <Label Text="When true, will use PdfLightTable, else use PdfGrid to generate line items" />
-            </StackLayout>
-            <Button Grid.Row="1"
-                    Command="{Binding GenerateInvoiceCommand}"
-                    HorizontalOptions="Center"
-                    Text="Generate Invoice"
-                    VerticalOptions="Center" />
-        </Grid>
-    </ContentPage.Content>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Use PdfLightTable" />
+					<Switch IsToggled="{Binding UseSimpleTable}" />
+				</StackLayout>
+				<Label Text="When true, will use PdfLightTable, else use PdfGrid to generate line items" />
+			</StackLayout>
+			<StackLayout Grid.Row="1"
+			             HorizontalOptions="Center"
+			             Orientation="Horizontal">
+				<Button Command="{Binding GenerateInvoiceCommand}"
+				        HorizontalOptions="Center"
+				        Text="Generate Invoice"
+				        VerticalOptions="Center" />
+				<Button Clicked="Show_PdfDoc"
+				        HorizontalOptions="Center"
+				        Text="Pdf Page"
+				        VerticalOptions="Center" />
+
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
 </ContentPage>

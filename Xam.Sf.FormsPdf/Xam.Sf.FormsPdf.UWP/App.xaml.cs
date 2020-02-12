@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Wibci.Xamarin.Images;
 using Windows.ApplicationModel;
@@ -53,7 +54,13 @@ namespace Xam.Sf.FormsPdf.UWP
 
 				rootFrame.NavigationFailed += OnNavigationFailed;
 
-				Xamarin.Forms.Forms.Init(e);
+				// you'll need to add `using System.Reflection;`
+				List<Assembly> assembliesToInclude = new List<Assembly>();
+
+				//Now, add all the assemblies your app uses
+				assembliesToInclude.Add(typeof(Syncfusion.XForms.UWP.TabView.SfTabViewRenderer).GetTypeInfo().Assembly);
+
+				Xamarin.Forms.Forms.Init(e, assembliesToInclude);
 
 				Xamarin.Forms.DependencyService.Register<ISaveFileStreamCommand, UWPSaveFileStreamCommand>();
 				Xamarin.Forms.DependencyService.Register<IResizeImageCommand, Wibci.Xamarin.Images.UWP.UWPResizeImageCommand>();
