@@ -4,5 +4,6 @@
     <SelectedDevice>api21_phone</SelectedDevice>
     <DefaultDevice>api21_phone</DefaultDevice>
     <ProjectView>ShowAllFiles</ProjectView>
+    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
   </PropertyGroup>
 </Project>
