@@ -16,8 +16,8 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.1.0.42" />
-    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.1.0.42" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.1.0.43" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.1.0.43" />
     <PackageReference Include="Wibci.Xamarin.Forms.Converters" Version="2.0.0" />
     <PackageReference Include="Wibci.Xamarin.Images" Version="2.0.3" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
